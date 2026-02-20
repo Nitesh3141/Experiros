@@ -1,0 +1,21 @@
+Use following colours only
+#F2A444 called light orange
+#F29849 called deep orange
+#8C5F45 called brown
+#f2f2f2 called white
+#404040 called dark grey
+
+Use following fonts only
+1) Manrope https://fonts.google.com/specimen/Manrope?specimen.preview.text=experiors 
+2) Montserrat https://fonts.google.com/specimen/Montserrat?specimen.preview.text=experiors 
+
+Navbar will be in dark grey colour with texts in orange colour. Text size will increase upon hovering. The color of the text corresponding to the selected/active section will be white
+Navbar texts will be aligned to the extreme right. On the extreme right, there will be an icon to log in. Use invertedLogo.gif at the extreme left
+There will be a thin deep orange line running throughout below the navbar.
+All section header will be in vertical text on vertical band in deep orange colour.
+
+Hero section will have a video playin in the background.
+
+FAQ answers will appear one at a time. At one time only the answer of one question will be visible. The answer will be hidden.
+
+How we work will have steps shown graphically (like a flowchart) with client's role and our role distinguishable the the use of colours or swimlanes.

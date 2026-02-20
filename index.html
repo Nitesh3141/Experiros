@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experiors – Premium Home Interiors | Design & Construction</title>
+  <meta name="description"
+    content="Experiors is a one-stop solution for premium home interior design and construction across Delhi NCR, Mumbai, Pune, Bangalore, Hyderabad, Vadodara and Ahmedabad." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════ NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="Assets/InvertedLogo.gif" alt="Experiors Logo" id="nav-logo-img" />
+      </a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+        <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        <li><a href="#vision" class="nav-link" data-section="vision">Vision</a></li>
+        <li><a href="#how-we-work" class="nav-link" data-section="how-we-work">How We Work</a></li>
+        <li><a href="#our-work" class="nav-link" data-section="our-work">Our Work</a></li>
+        <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+        <li><a href="#faq" class="nav-link" data-section="faq">FAQs</a></li>
+        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        <li><a href="#estimate" class="nav-link estimate-nav-btn" data-section="estimate">Get Estimate</a></li>
+        <li>
+          <a href="#" class="nav-login-icon" title="Client Login" aria-label="Client Login">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-accent-line"></div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════════════ CLIENT AUTH MODAL -->
+  <div id="authModalBackdrop" class="auth-backdrop"></div>
+  <div id="authModal" class="auth-modal" role="dialog" aria-modal="true" aria-label="Client Login">
+    <button class="auth-modal-close" id="authModalClose" aria-label="Close">&#x2715;</button>
+
+    <!-- View 1: Mobile entry (check if registered) -->
+    <div id="authViewMobile" class="auth-view active">
+      <div class="auth-logo">
+        <img src="Assets/InvertedLogo.gif" alt="Experiors" />
+      </div>
+      <h2 class="auth-title">Welcome Back</h2>
+      <p class="auth-sub">Enter your mobile number to continue.</p>
+      <div class="auth-form-group">
+        <label for="auth-mobile">Mobile Number</label>
+        <input type="tel" id="auth-mobile" placeholder="+91 98765 43210" maxlength="15" />
+      </div>
+      <button class="auth-btn-primary" id="authMobileNext">Continue →</button>
+      <p class="auth-switch">New client? <a href="#" id="goToRegister">Register here</a></p>
+    </div>
+
+    <!-- View 2: OTP login (registered client) -->
+    <div id="authViewLoginOtp" class="auth-view">
+      <h2 class="auth-title">Verify Mobile OTP</h2>
+      <p class="auth-sub">An OTP has been sent to your registered mobile.</p>
+      <div class="auth-otp-demo" id="loginOtpDemo"></div>
+      <div class="auth-form-group">
+        <label for="auth-login-otp">Enter OTP</label>
+        <input type="text" id="auth-login-otp" maxlength="6" placeholder="6-digit OTP" />
+      </div>
+      <button class="auth-btn-primary" id="authVerifyLoginOtp">Verify &amp; Login</button>
+      <p class="auth-switch"><a href="#" id="backToMobile">← Change number</a></p>
+    </div>
+
+    <!-- View 3: Register form (new client) -->
+    <div id="authViewRegister" class="auth-view">
+      <h2 class="auth-title">Create Account</h2>
+      <p class="auth-sub">Register to access detailed estimates and track your project.</p>
+      <div class="auth-form-group">
+        <label for="reg-name">Full Name</label>
+        <input type="text" id="reg-name" placeholder="Your full name" />
+      </div>
+      <div class="auth-form-group">
+        <label for="reg-email">Email Address</label>
+        <input type="email" id="reg-email" placeholder="you@email.com" />
+      </div>
+      <div class="auth-form-group">
+        <label for="reg-mobile">Mobile Number</label>
+        <input type="tel" id="reg-mobile" placeholder="+91 98765 43210" maxlength="15" />
+      </div>
+      <button class="auth-btn-primary" id="authSendRegOtp">Send OTP →</button>
+      <p class="auth-switch">Already registered? <a href="#" id="goToLogin">Login here</a></p>
+    </div>
+
+    <!-- View 4: OTP register verify -->
+    <div id="authViewRegisterOtp" class="auth-view">
+      <h2 class="auth-title">Verify &amp; Register</h2>
+      <p class="auth-sub">Enter the OTP sent to your mobile to complete registration.</p>
+      <div class="auth-otp-demo" id="regOtpDemo"></div>
+      <div class="auth-form-group">
+        <label for="auth-reg-otp">Enter OTP</label>
+        <input type="text" id="auth-reg-otp" maxlength="6" placeholder="6-digit OTP" />
+      </div>
+      <button class="auth-btn-primary" id="authVerifyRegOtp">Verify &amp; Create Account</button>
+      <p class="auth-switch"><a href="#" id="backToRegister">← Back</a></p>
+    </div>
+
+    <!-- View 5: Logged in -->
+    <div id="authViewLoggedIn" class="auth-view">
+      <div class="auth-success-icon">✓</div>
+      <h2 class="auth-title" id="authWelcomeName">Welcome!</h2>
+      <p class="auth-sub" id="authWelcomeSub">You are logged in.</p>
+
+      <!-- My Estimates -->
+      <div class="auth-estimates-section">
+        <div class="auth-estimates-header">
+          <span>My Saved Estimates</span>
+          <span class="auth-estimates-count" id="authEstimatesCount">0</span>
+        </div>
+        <div class="auth-estimates-list" id="authEstimatesList">
+          <p class="auth-estimates-empty">No estimates saved yet.<br />
+            <a href="#estimate">Get an estimate →</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="auth-actions">
+        <button class="auth-btn-primary" id="authGoEstimateBtn">View My Estimates</button>
+        <button class="auth-btn-secondary" id="authExploreBtn">Explore Website</button>
+      </div>
+    </div>
+
+    <p class="auth-error" id="authError"></p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ HERO -->
+
+  <section id="home" class="section-hero">
+    <div class="hero-video-wrap">
+      <video autoplay muted loop playsinline id="heroVideo">
+        <source src="Assets/HeroSectionVideo2.MP4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tagline-sub">Where Luxury Meets Precision</p>
+      <h1 class="hero-title">Crafting Spaces That<br /><span class="hero-title-accent">Define You</span></h1>
+      <p class="hero-desc">Premium interior design &amp; construction across Delhi NCR, Mumbai, Pune, Bangalore,
+        Hyderabad, Vadodara &amp; Ahmedabad.</p>
+      <div class="hero-ctas">
+        <a href="#estimate" class="btn btn-primary">Get an Estimate</a>
+        <a href="#contact" class="btn btn-outline">Book a Meeting</a>
+      </div>
+    </div>
+    <a href="#about" class="hero-scroll-hint" aria-label="Scroll down">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ ABOUT -->
+  <section id="about" class="section-standard">
+    <div class="section-header-band">
+      <span class="section-header-text">About</span>
+    </div>
+    <div class="section-body">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 class="section-title" id="about-title">About Experiors</h2>
+          <p class="about-lead" id="about-lead">We are a high-end home interiors solution company engaging in design and
+            construction of premium interiors for residential and commercial projects — your one-stop solution from
+            concept to completion.</p>
+          <p class="about-body" id="about-body">At Experiors, we believe your home is more than a space — it's an
+            expression of who you are. Our team of seasoned designers and master craftsmen work in perfect harmony to
+            deliver interiors that are not just beautiful, but built to last. Every project is a story, and we are
+            dedicated to telling yours with unmatched precision and care.</p>
+          <div class="about-cities">
+            <h3 class="about-cities-title">We Operate In</h3>
+            <div class="cities-grid">
+              <span class="city-chip">Delhi NCR</span>
+              <span class="city-chip">Mumbai</span>
+              <span class="city-chip">Pune</span>
+              <span class="city-chip">Bangalore</span>
+              <span class="city-chip">Hyderabad</span>
+              <span class="city-chip">Vadodara</span>
+              <span class="city-chip">Ahmedabad</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">7</span>
+            <span class="stat-label">Cities</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Luxury Tiers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Categories -->
+      <div class="categories-section">
+        <h2 class="categories-title">Our Luxury Tiers</h2>
+        <div class="categories-grid">
+          <div class="category-card" id="cat-harmony">
+            <div class="category-icon">✦</div>
+            <h3 class="category-name">Harmony</h3>
+            <p class="category-tagline">Balanced Elegance for Everyday Luxury</p>
+            <p class="category-desc">The sweet spot where timeless comfort meets refined style. Cohesive, serene
+              environments with smart storage, branded hardware, and warm palettes — ideal for families and
+              professionals.</p>
+            <ul class="category-features">
+              <li>Premium branded laminates &amp; engineered wood</li>
+              <li>Modular kitchens with quartz countertops</li>
+              <li>LED lighting &amp; good-quality sanitaryware</li>
+              <li>Smart storage solutions</li>
+            </ul>
+          </div>
+          <div class="category-card featured" id="cat-majesty">
+            <div class="category-badge">Most Popular</div>
+            <div class="category-icon">♛</div>
+            <h3 class="category-name">Majesty</h3>
+            <p class="category-tagline">Regal Sophistication &amp; Timeless Grandeur</p>
+            <p class="category-desc">Royal poise and commanding presence. Italian marble, solid teak veneers, coffered
+              ceilings, and smart home integration — for discerning homeowners who appreciate grandeur.</p>
+            <ul class="category-features">
+              <li>Italian marble or granite flooring</li>
+              <li>Custom joinery &amp; statement chandeliers</li>
+              <li>Imported sanitaryware (Grohe, Toto)</li>
+              <li>Smart home integration</li>
+            </ul>
+          </div>
+          <div class="category-card" id="cat-elysium">
+            <div class="category-icon">◈</div>
+            <h3 class="category-name">Elysium</h3>
+            <p class="category-tagline">Ultimate Bespoke Paradise of Exquisite Refinement</p>
+            <p class="category-desc">The pinnacle of interior mastery. Rare materials, masterful artistry, and seamless
+              technology — a private haven of unparalleled beauty reserved for those who demand perfection.</p>
+            <ul class="category-features">
+              <li>Calacatta marble &amp; exotic solid woods</li>
+              <li>Full smart home automation</li>
+              <li>Artisanal collaborations &amp; custom art</li>
+              <li>Wellness &amp; high-security features</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ VISION -->
+  <section id="vision" class="section-standard section-dark">
+    <div class="section-header-band band-light">
+      <span class="section-header-text">Vision</span>
+    </div>
+    <div class="section-body">
+      <div class="vmv-grid">
+        <div class="vmv-card">
+          <div class="vmv-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="10" stroke="#F2A444" stroke-width="2.5" />
+              <line x1="24" y1="4" x2="24" y2="10" stroke="#F2A444" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="24" y1="38" x2="24" y2="44" stroke="#F2A444" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="4" y1="24" x2="10" y2="24" stroke="#F2A444" stroke-width="2.5" stroke-linecap="round" />
+              <line x1="38" y1="24" x2="44" y2="24" stroke="#F2A444" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3 class="vmv-title">Our Vision</h3>
+          <p class="vmv-text" id="vision-text">To become the most trusted and recommended interior design partner in the
+            industry, recognized not merely for our aesthetic expertise, but for our unyielding commitment to
+            transparency, timely execution, and absolute fidelity to every client budget and original scope.</p>
+        </div>
+        <div class="vmv-card">
+          <div class="vmv-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 6L28.5 18H42L31.5 25.5L36 37.5L24 30L12 37.5L16.5 25.5L6 18H19.5L24 6Z" stroke="#F2A444"
+                stroke-width="2.5" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 class="vmv-title">Our Mission</h3>
+          <p class="vmv-text" id="mission-text">To foster an environment of absolute ethical integrity in all
+            operations. We commit to transparent cost structures, fair partner compensation, and responsible material
+            resourcing — delivering spaces that honour both our clients' trust and our craftsmen's expertise.</p>
+        </div>
+        <div class="vmv-card vmv-values">
+          <div class="vmv-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M24 42C24 42 6 30 6 18C6 12.477 10.477 8 16 8C19.5 8 22.5 9.8 24 12.5C25.5 9.8 28.5 8 32 8C37.523 8 42 12.477 42 18C42 30 24 42 24 42Z"
+                stroke="#F2A444" stroke-width="2.5" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3 class="vmv-title">Our Values</h3>
+          <div class="values-list" id="values-list">
+            <div class="value-item"><span class="value-dot"></span>Honesty</div>
+            <div class="value-item"><span class="value-dot"></span>Integrity</div>
+            <div class="value-item"><span class="value-dot"></span>Commitment</div>
+            <div class="value-item"><span class="value-dot"></span>Innovation</div>
+            <div class="value-item"><span class="value-dot"></span>Care</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ HOW WE WORK -->
+  <section id="how-we-work" class="section-standard">
+    <div class="section-header-band">
+      <span class="section-header-text">Process</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">How We Work</h2>
+      <p class="section-subtitle">A transparent, collaborative journey from first visit to happy home.</p>
+      <div class="swimlane-container">
+        <div class="swimlane-flow">
+          <!-- Step 1: Client -->
+          <div class="flow-step client-step">
+            <div class="step-connector step-connector-start"></div>
+            <div class="step-node">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h4>Explore &amp; Estimate</h4>
+                <p>Visit our website, explore our portfolio, and generate a preliminary estimate.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-down"></div>
+          </div>
+          <!-- Step 2: Client -->
+          <div class="flow-step client-step">
+            <div class="step-node">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h4>Register &amp; Deposit</h4>
+                <p>Register with OTP-verified email &amp; mobile. Pay a refundable ₹1,000 token deposit to confirm
+                  seriousness.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-cross"></div>
+          </div>
+          <!-- Step 3: Experiors -->
+          <div class="flow-step experiors-step">
+            <div class="step-node">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h4>Detailed Estimate</h4>
+                <p>We generate a detailed, room-by-room estimate based on your specifications and floor plan.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-cross"></div>
+          </div>
+          <!-- Step 4: Client + Experiors -->
+          <div class="flow-step shared-step">
+            <div class="step-node">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h4>Coffee Meeting ☕</h4>
+                <p>Book a meeting slot. We sit together to understand your vision, lifestyle, and requirements in
+                  detail.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-down"></div>
+          </div>
+          <!-- Step 5: Client -->
+          <div class="flow-step client-step">
+            <div class="step-node">
+              <div class="step-number">5</div>
+              <div class="step-content">
+                <h4>Agreement</h4>
+                <p>You enter into a formal agreement with us — clear scope, timeline, and payment milestones.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-cross"></div>
+          </div>
+          <!-- Step 6: Experiors -->
+          <div class="flow-step experiors-step">
+            <div class="step-node">
+              <div class="step-number">6</div>
+              <div class="step-content">
+                <h4>Design Options</h4>
+                <p>Our designers craft multiple design concepts tailored to your taste and budget.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-cross"></div>
+          </div>
+          <!-- Step 7: Client -->
+          <div class="flow-step client-step">
+            <div class="step-node">
+              <div class="step-number">7</div>
+              <div class="step-content">
+                <h4>Design Approval</h4>
+                <p>You review, provide feedback, and approve the final design. Revisions included.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-cross"></div>
+          </div>
+          <!-- Step 8: Experiors -->
+          <div class="flow-step experiors-step">
+            <div class="step-node">
+              <div class="step-number">8</div>
+              <div class="step-content">
+                <h4>Construction</h4>
+                <p>Our skilled craftsmen execute the design with precision. Daily updates keep you in the loop.</p>
+              </div>
+            </div>
+            <div class="step-arrow arrow-down"></div>
+          </div>
+          <!-- Step 9: Shared -->
+          <div class="flow-step shared-step final-step">
+            <div class="step-node">
+              <div class="step-number">9</div>
+              <div class="step-content">
+                <h4>Happy Home 🏠</h4>
+                <p>We deliver your dream home — on time, on budget, and beyond expectations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ OUR WORK -->
+  <section id="our-work" class="section-standard section-dark">
+    <div class="section-header-band band-light">
+      <span class="section-header-text">Portfolio</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">Our Work</h2>
+      <p class="section-subtitle">A curated selection from our portfolio of premium projects.</p>
+      <div class="gallery-filters">
+        <button class="gallery-filter active" data-project="all">All Projects</button>
+        <button class="gallery-filter" data-project="Adani Samsara Vilasa">Adani Samsara Vilasa</button>
+        <button class="gallery-filter" data-project="Emaar Palm Drive">Emaar Palm Drive</button>
+        <button class="gallery-filter" data-project="M3M Merlin">M3M Merlin</button>
+        <button class="gallery-filter" data-project="Mahendra Aura">Mahendra Aura</button>
+        <button class="gallery-filter" data-project="Sare Homes">Sare Homes</button>
+        <button class="gallery-filter" data-project="Sobha International City">Sobha International City</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Adani Samsara Vilasa -->
+        <div class="gallery-item" data-project="Adani Samsara Vilasa"><img
+            src="Assets/Project Photos/Adani Samsara Vilasa/P1332905.JPG" alt="Adani Samsara Vilasa" loading="lazy" />
+          <div class="gallery-overlay"><span>Adani Samsara Vilasa</span></div>
+        </div>
+        <div class="gallery-item" data-project="Adani Samsara Vilasa"><img
+            src="Assets/Project Photos/Adani Samsara Vilasa/P1332910.JPG" alt="Adani Samsara Vilasa" loading="lazy" />
+          <div class="gallery-overlay"><span>Adani Samsara Vilasa</span></div>
+        </div>
+        <div class="gallery-item" data-project="Adani Samsara Vilasa"><img
+            src="Assets/Project Photos/Adani Samsara Vilasa/P1332920.JPG" alt="Adani Samsara Vilasa" loading="lazy" />
+          <div class="gallery-overlay"><span>Adani Samsara Vilasa</span></div>
+        </div>
+        <div class="gallery-item" data-project="Adani Samsara Vilasa"><img
+            src="Assets/Project Photos/Adani Samsara Vilasa/P1332943.JPG" alt="Adani Samsara Vilasa" loading="lazy" />
+          <div class="gallery-overlay"><span>Adani Samsara Vilasa</span></div>
+        </div>
+        <div class="gallery-item" data-project="Adani Samsara Vilasa"><img
+            src="Assets/Project Photos/Adani Samsara Vilasa/P1332944.JPG" alt="Adani Samsara Vilasa" loading="lazy" />
+          <div class="gallery-overlay"><span>Adani Samsara Vilasa</span></div>
+        </div>
+        <div class="gallery-item" data-project="Adani Samsara Vilasa"><img
+            src="Assets/Project Photos/Adani Samsara Vilasa/P1333008.JPG" alt="Adani Samsara Vilasa" loading="lazy" />
+          <div class="gallery-overlay"><span>Adani Samsara Vilasa</span></div>
+        </div>
+        <!-- Emaar Palm Drive -->
+        <div class="gallery-item" data-project="Emaar Palm Drive"><img
+            src="Assets/Project Photos/Emaar Palm Drive/1.jpeg" alt="Emaar Palm Drive" loading="lazy" />
+          <div class="gallery-overlay"><span>Emaar Palm Drive</span></div>
+        </div>
+        <div class="gallery-item" data-project="Emaar Palm Drive"><img
+            src="Assets/Project Photos/Emaar Palm Drive/13.jpeg" alt="Emaar Palm Drive" loading="lazy" />
+          <div class="gallery-overlay"><span>Emaar Palm Drive</span></div>
+        </div>
+        <div class="gallery-item" data-project="Emaar Palm Drive"><img
+            src="Assets/Project Photos/Emaar Palm Drive/4.jpeg" alt="Emaar Palm Drive" loading="lazy" />
+          <div class="gallery-overlay"><span>Emaar Palm Drive</span></div>
+        </div>
+        <div class="gallery-item" data-project="Emaar Palm Drive"><img
+            src="Assets/Project Photos/Emaar Palm Drive/7.jpeg" alt="Emaar Palm Drive" loading="lazy" />
+          <div class="gallery-overlay"><span>Emaar Palm Drive</span></div>
+        </div>
+        <div class="gallery-item" data-project="Emaar Palm Drive"><img
+            src="Assets/Project Photos/Emaar Palm Drive/9.jpeg" alt="Emaar Palm Drive" loading="lazy" />
+          <div class="gallery-overlay"><span>Emaar Palm Drive</span></div>
+        </div>
+        <!-- M3M Merlin -->
+        <div class="gallery-item" data-project="M3M Merlin"><img src="Assets/Project Photos/M3M Merlin/12.jpeg"
+            alt="M3M Merlin" loading="lazy" />
+          <div class="gallery-overlay"><span>M3M Merlin</span></div>
+        </div>
+        <div class="gallery-item" data-project="M3M Merlin"><img src="Assets/Project Photos/M3M Merlin/2.jpeg"
+            alt="M3M Merlin" loading="lazy" />
+          <div class="gallery-overlay"><span>M3M Merlin</span></div>
+        </div>
+        <div class="gallery-item" data-project="M3M Merlin"><img src="Assets/Project Photos/M3M Merlin/8.jpeg"
+            alt="M3M Merlin" loading="lazy" />
+          <div class="gallery-overlay"><span>M3M Merlin</span></div>
+        </div>
+        <div class="gallery-item" data-project="M3M Merlin"><img src="Assets/Project Photos/M3M Merlin/9.jpeg"
+            alt="M3M Merlin" loading="lazy" />
+          <div class="gallery-overlay"><span>M3M Merlin</span></div>
+        </div>
+        <!-- Mahendra Aura -->
+        <div class="gallery-item" data-project="Mahendra Aura"><img
+            src="Assets/Project Photos/Mahendra Aura/P1334876.JPG" alt="Mahendra Aura" loading="lazy" />
+          <div class="gallery-overlay"><span>Mahendra Aura</span></div>
+        </div>
+        <div class="gallery-item" data-project="Mahendra Aura"><img
+            src="Assets/Project Photos/Mahendra Aura/P1334928.JPG" alt="Mahendra Aura" loading="lazy" />
+          <div class="gallery-overlay"><span>Mahendra Aura</span></div>
+        </div>
+        <div class="gallery-item" data-project="Mahendra Aura"><img
+            src="Assets/Project Photos/Mahendra Aura/P1334948.JPG" alt="Mahendra Aura" loading="lazy" />
+          <div class="gallery-overlay"><span>Mahendra Aura</span></div>
+        </div>
+        <div class="gallery-item" data-project="Mahendra Aura"><img
+            src="Assets/Project Photos/Mahendra Aura/P1334960.JPG" alt="Mahendra Aura" loading="lazy" />
+          <div class="gallery-overlay"><span>Mahendra Aura</span></div>
+        </div>
+        <div class="gallery-item" data-project="Mahendra Aura"><img
+            src="Assets/Project Photos/Mahendra Aura/P1334973.JPG" alt="Mahendra Aura" loading="lazy" />
+          <div class="gallery-overlay"><span>Mahendra Aura</span></div>
+        </div>
+        <div class="gallery-item" data-project="Mahendra Aura"><img
+            src="Assets/Project Photos/Mahendra Aura/P1334976.JPG" alt="Mahendra Aura" loading="lazy" />
+          <div class="gallery-overlay"><span>Mahendra Aura</span></div>
+        </div>
+        <!-- Sare Homes -->
+        <div class="gallery-item" data-project="Sare Homes"><img src="Assets/Project Photos/Sare Homes/P1335080.JPG"
+            alt="Sare Homes" loading="lazy" />
+          <div class="gallery-overlay"><span>Sare Homes</span></div>
+        </div>
+        <div class="gallery-item" data-project="Sare Homes"><img src="Assets/Project Photos/Sare Homes/P1335084.JPG"
+            alt="Sare Homes" loading="lazy" />
+          <div class="gallery-overlay"><span>Sare Homes</span></div>
+        </div>
+        <div class="gallery-item" data-project="Sare Homes"><img src="Assets/Project Photos/Sare Homes/P1335090.JPG"
+            alt="Sare Homes" loading="lazy" />
+          <div class="gallery-overlay"><span>Sare Homes</span></div>
+        </div>
+        <div class="gallery-item" data-project="Sare Homes"><img src="Assets/Project Photos/Sare Homes/P1335122.JPG"
+            alt="Sare Homes" loading="lazy" />
+          <div class="gallery-overlay"><span>Sare Homes</span></div>
+        </div>
+        <!-- Sobha International City -->
+        <div class="gallery-item" data-project="Sobha International City"><img
+            src="Assets/Project Photos/Sobha International City/P1332703.JPG" alt="Sobha International City"
+            loading="lazy" />
+          <div class="gallery-overlay"><span>Sobha International City</span></div>
+        </div>
+        <div class="gallery-item" data-project="Sobha International City"><img
+            src="Assets/Project Photos/Sobha International City/P1332705.JPG" alt="Sobha International City"
+            loading="lazy" />
+          <div class="gallery-overlay"><span>Sobha International City</span></div>
+        </div>
+        <div class="gallery-item" data-project="Sobha International City"><img
+            src="Assets/Project Photos/Sobha International City/P1332709.JPG" alt="Sobha International City"
+            loading="lazy" />
+          <div class="gallery-overlay"><span>Sobha International City</span></div>
+        </div>
+        <div class="gallery-item" data-project="Sobha International City"><img
+            src="Assets/Project Photos/Sobha International City/P1332711.JPG" alt="Sobha International City"
+            loading="lazy" />
+          <div class="gallery-overlay"><span>Sobha International City</span></div>
+        </div>
+        <div class="gallery-item" data-project="Sobha International City"><img
+            src="Assets/Project Photos/Sobha International City/P1332723.JPG" alt="Sobha International City"
+            loading="lazy" />
+          <div class="gallery-overlay"><span>Sobha International City</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <button class="lightbox-prev" id="lightboxPrev" aria-label="Previous">&#8249;</button>
+    <button class="lightbox-next" id="lightboxNext" aria-label="Next">&#8250;</button>
+    <img id="lightboxImg" src="" alt="Project photo" />
+    <p id="lightboxCaption" class="lightbox-caption"></p>
+  </div>
+  <div id="lightboxBackdrop" class="lightbox-backdrop"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════ BLOG -->
+  <section id="blog" class="section-standard">
+    <div class="section-header-band">
+      <span class="section-header-text">Blog</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">Insights &amp; Inspiration</h2>
+      <p class="section-subtitle">Ideas, trends, and expert advice from our design team.</p>
+      <div class="blog-grid" id="blogGrid">
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <div class="blog-img-placeholder blog-img-1"></div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-tag">Design Trends</span>
+            <h3 class="blog-title">5 Interior Design Trends Dominating 2025</h3>
+            <p class="blog-excerpt">From biophilic design to japandi minimalism — discover the styles reshaping premium
+              Indian homes this year.</p>
+            <div class="blog-meta"><span>Feb 10, 2025</span><a href="#" class="blog-read-more">Read More →</a></div>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <div class="blog-img-placeholder blog-img-2"></div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-tag">Material Guide</span>
+            <h3 class="blog-title">Marble vs Quartz: Which Countertop is Right for You?</h3>
+            <p class="blog-excerpt">A deep dive into the pros, cons, and costs of the two most sought-after countertop
+              materials in luxury kitchens.</p>
+            <div class="blog-meta"><span>Jan 28, 2025</span><a href="#" class="blog-read-more">Read More →</a></div>
+          </div>
+        </article>
+        <article class="blog-card">
+          <div class="blog-img-wrap">
+            <div class="blog-img-placeholder blog-img-3"></div>
+          </div>
+          <div class="blog-content">
+            <span class="blog-tag">Smart Homes</span>
+            <h3 class="blog-title">How Smart Home Automation is Changing Interior Design</h3>
+            <p class="blog-excerpt">Voice-controlled lighting, automated curtains, and invisible tech — the future of
+              luxury living is already here.</p>
+            <div class="blog-meta"><span>Jan 15, 2025</span><a href="#" class="blog-read-more">Read More →</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ TESTIMONIALS -->
+  <section id="testimonials" class="section-standard section-dark">
+    <div class="section-header-band band-light">
+      <span class="section-header-text">Reviews</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <div class="testimonials-carousel" id="testimonialsCarousel">
+        <div class="testimonial-track" id="testimonialTrack">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" id="t1-text">"Experiors transformed our apartment into a masterpiece. The
+              attention to detail, the quality of materials, and the professionalism of the team was unmatched. We
+              couldn't be happier."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RS</div>
+              <div><strong id="t1-name">Rajesh Sharma</strong><br /><span id="t1-loc">Adani Samsara Vilasa,
+                  Gurugram</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" id="t2-text">"The Majesty package exceeded all our expectations. From the
+              initial coffee meeting to the final handover, every step was transparent and on schedule. Highly
+              recommended!"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">PK</div>
+              <div><strong id="t2-name">Priya Kapoor</strong><br /><span id="t2-loc">Sobha International City,
+                  Gurugram</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" id="t3-text">"We chose the Elysium package for our penthouse and it was worth
+              every rupee. The craftsmanship is extraordinary — our home looks like it belongs in an architectural
+              magazine."</p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AM</div>
+              <div><strong id="t3-name">Arjun Mehta</strong><br /><span id="t3-loc">Emaar Palm Drive, Gurugram</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text" id="t4-text">"What sets Experiors apart is their honesty. No hidden costs, no
+              surprises. The estimate they gave us was exactly what we paid. That integrity is rare in this industry."
+            </p>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SG</div>
+              <div><strong id="t4-name">Sunita Gupta</strong><br /><span id="t4-loc">Mahendra Aura, Noida</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-btn" id="carouselPrev" aria-label="Previous">&#8249;</button>
+          <div class="carousel-dots" id="carouselDots"></div>
+          <button class="carousel-btn" id="carouselNext" aria-label="Next">&#8250;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ FAQ -->
+  <section id="faq" class="section-standard">
+    <div class="section-header-band">
+      <span class="section-header-text">FAQ</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything you need to know before starting your interior journey.</p>
+      <div class="faq-accordion" id="faqAccordion">
+        <!-- FAQs will be rendered by JS from localStorage or defaults -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ ESTIMATE -->
+  <section id="estimate" class="section-standard section-dark">
+    <div class="section-header-band band-light">
+      <span class="section-header-text">Estimate</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">Get Your Estimate</h2>
+      <p class="section-subtitle">Choose the estimate type that suits you best.</p>
+      <div class="estimate-tabs">
+        <button class="estimate-tab active" data-tab="quick" id="tabQuick">⚡ Quick Estimate</button>
+        <button class="estimate-tab" data-tab="detailed" id="tabDetailed">📋 Detailed Estimate</button>
+      </div>
+
+      <!-- QUICK ESTIMATE -->
+      <div class="estimate-panel active" id="panelQuick">
+        <div class="estimate-form-card">
+          <h3>Quick Estimate</h3>
+          <p class="estimate-form-note">Get a ballpark estimate in under 2 minutes. No registration required.</p>
+          <form id="quickEstimateForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="qe-area">Carpet Area (sq ft) *</label>
+                <input type="number" id="qe-area" min="100" max="10000" placeholder="e.g. 1200" required />
+              </div>
+              <div class="form-group">
+                <label for="qe-worktype">Type of Work *</label>
+                <select id="qe-worktype" required>
+                  <option value="">Select...</option>
+                  <option value="new">New Interiors</option>
+                  <option value="renovation">Renovation</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="qe-location">City *</label>
+                <select id="qe-location" required>
+                  <option value="">Select city...</option>
+                  <option>Delhi NCR</option>
+                  <option>Mumbai</option>
+                  <option>Pune</option>
+                  <option>Bangalore</option>
+                  <option>Hyderabad</option>
+                  <option>Vadodara</option>
+                  <option>Ahmedabad</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="qe-category">Interior Category *</label>
+                <select id="qe-category" required>
+                  <option value="">Select category...</option>
+                  <option value="Harmony">Harmony</option>
+                  <option value="Majesty">Majesty</option>
+                  <option value="Elysium">Elysium</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Calculate Estimate</button>
+          </form>
+          <div class="estimate-result" id="quickEstimateResult" style="display:none;">
+            <h4>Your Estimated Range</h4>
+            <div class="estimate-range-display">
+              <span class="estimate-min" id="qeMin"></span>
+              <span class="estimate-range-sep">to</span>
+              <span class="estimate-max" id="qeMax"></span>
+            </div>
+            <div class="estimate-slider-wrap">
+              <input type="range" class="estimate-slider" id="qeSlider" min="0" max="100" value="50" readonly />
+              <div class="estimate-slider-labels">
+                <span id="qeSliderMin"></span>
+                <span id="qeSliderMax"></span>
+              </div>
+            </div>
+            <p class="estimate-disclaimer">* This is an indicative estimate. Actual costs depend on specific material
+              selections, site conditions, and scope. <a href="#estimate" id="getDetailedLink">Get a Detailed Estimate
+                →</a></p>
+            <div class="estimate-actions">
+              <button class="btn btn-primary" id="qeBookBtn">Get Detailed Estimate →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DETAILED ESTIMATE -->
+      <div class="estimate-panel" id="panelDetailed">
+        <!-- Step 1: Registration Gate -->
+        <div class="detailed-step" id="detStep1">
+          <div class="estimate-form-card">
+            <h3>Detailed Estimate</h3>
+            <p class="estimate-form-note">A precise, room-by-room estimate. Requires registration with OTP verification
+              and a refundable ₹1,000 deposit.</p>
+            <div class="deposit-info-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <p>The ₹1,000 deposit is fully refundable — it will be adjusted in our fees or returned if we cannot
+                meaningfully engage with your project.</p>
+            </div>
+            <form id="detRegForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="det-name">Full Name *</label>
+                  <input type="text" id="det-name" placeholder="Your full name" required />
+                </div>
+                <div class="form-group">
+                  <label for="det-email">Email Address *</label>
+                  <input type="email" id="det-email" placeholder="you@email.com" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="det-mobile">Mobile Number *</label>
+                  <input type="tel" id="det-mobile" placeholder="+91 98765 43210" required />
+                </div>
+                <div class="form-group">
+                  <label for="det-city">City *</label>
+                  <select id="det-city" required>
+                    <option value="">Select city...</option>
+                    <option>Delhi NCR</option>
+                    <option>Mumbai</option>
+                    <option>Pune</option>
+                    <option>Bangalore</option>
+                    <option>Hyderabad</option>
+                    <option>Vadodara</option>
+                    <option>Ahmedabad</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Send OTP &amp; Proceed</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Step 2: OTP Verification -->
+        <div class="detailed-step" id="detStep2" style="display:none;">
+          <div class="estimate-form-card">
+            <h3>Verify Your Details</h3>
+            <p class="estimate-form-note">Enter the OTPs sent to your email and mobile.</p>
+            <div class="otp-demo-notice" id="otpDemoNotice">
+              <strong>Demo Mode:</strong> Email OTP: <span id="demoEmailOtp" class="otp-code"></span> &nbsp;|&nbsp;
+              Mobile OTP: <span id="demoMobileOtp" class="otp-code"></span>
+            </div>
+            <form id="otpForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="otp-email">Email OTP *</label>
+                  <input type="text" id="otp-email" maxlength="6" placeholder="6-digit OTP" required />
+                </div>
+                <div class="form-group">
+                  <label for="otp-mobile">Mobile OTP *</label>
+                  <input type="text" id="otp-mobile" maxlength="6" placeholder="6-digit OTP" required />
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Verify &amp; Pay ₹1,000</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Step 3: Payment -->
+        <div class="detailed-step" id="detStep3" style="display:none;">
+          <div class="estimate-form-card">
+            <h3>Refundable Deposit</h3>
+            <p class="estimate-form-note">Pay ₹1,000 to unlock your detailed estimate. This amount is fully refundable.
+            </p>
+            <div class="payment-placeholder">
+              <div class="payment-amount">₹1,000</div>
+              <p>Refundable Token Deposit</p>
+              <button class="btn btn-primary btn-full" id="payNowBtn">Pay Now (Demo)</button>
+              <p class="payment-note">* In production, this will open Razorpay/payment gateway.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4: House Details -->
+        <div class="detailed-step" id="detStep4" style="display:none;">
+          <div class="estimate-form-card">
+            <h3>House Details</h3>
+            <form id="houseDetailsForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hd-area">Carpet Area (sq ft) *</label>
+                  <input type="number" id="hd-area" min="100" placeholder="e.g. 1500" required />
+                </div>
+                <div class="form-group">
+                  <label for="hd-worktype">Type of Work *</label>
+                  <select id="hd-worktype" required>
+                    <option value="">Select...</option>
+                    <option value="new">New Interiors</option>
+                    <option value="renovation">Renovation</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hd-bedrooms">Number of Bedrooms *</label>
+                  <select id="hd-bedrooms" required>
+                    <option value="">Select...</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5+</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="hd-bathrooms">Number of Bathrooms *</label>
+                  <select id="hd-bathrooms" required>
+                    <option value="">Select...</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="hd-balconies">Number of Balconies</label>
+                  <select id="hd-balconies">
+                    <option value="0">0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                </div>
+                <div class="form-group form-group-checks">
+                  <label>Additional Spaces</label>
+                  <label class="check-label"><input type="checkbox" id="hd-kidsroom" /> Kid's Room</label>
+                  <label class="check-label"><input type="checkbox" id="hd-mandir" /> Mandir / Pooja Unit</label>
+                  <label class="check-label"><input type="checkbox" id="hd-study" /> Study Room</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="hd-category">Interior Category *</label>
+                <div class="category-radio-group">
+                  <label class="category-radio"><input type="radio" name="hd-cat" value="Harmony" />
+                    <span>Harmony</span></label>
+                  <label class="category-radio"><input type="radio" name="hd-cat" value="Majesty" />
+                    <span>Majesty</span></label>
+                  <label class="category-radio"><input type="radio" name="hd-cat" value="Elysium" />
+                    <span>Elysium</span></label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="hd-floorplan">Upload Floor Plan (optional)</label>
+                <input type="file" id="hd-floorplan" accept=".pdf,.jpg,.jpeg,.png" />
+                <div id="floorplanPreview" class="floorplan-preview"></div>
+              </div>
+              <button type="submit" class="btn btn-primary btn-full">Next: Room Specifications →</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Step 5: Room Specifications -->
+        <div class="detailed-step" id="detStep5" style="display:none;">
+          <div class="estimate-form-card">
+            <h3>Room Specifications</h3>
+            <p class="estimate-form-note">Select materials for each room. All rooms must use the same category.</p>
+            <div id="roomSpecsContainer"></div>
+            <div class="spec-actions">
+              <button class="btn btn-outline" id="detSaveEstimate">💾 Save Estimate</button>
+              <button class="btn btn-primary" id="detCalcEstimate">Calculate Detailed Estimate →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 6: Result -->
+        <div class="detailed-step" id="detStep6" style="display:none;">
+          <div class="estimate-form-card">
+            <h3>Your Detailed Estimate</h3>
+            <div id="detailedEstimateResult"></div>
+            <div class="estimate-actions">
+              <button class="btn btn-outline" id="detDownloadBtn">📥 Download PDF</button>
+              <button class="btn btn-primary" id="detBookMeetingBtn">Book a Meeting</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ CONTACT -->
+  <section id="contact" class="section-standard">
+    <div class="section-header-band">
+      <span class="section-header-text">Contact</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">Ready to start your interior journey? Let's talk.</p>
+      <div class="contact-grid">
+        <div class="contact-form-wrap">
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-name">Full Name *</label>
+                <input type="text" id="cf-name" placeholder="Your name" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-email">Email *</label>
+                <input type="email" id="cf-email" placeholder="you@email.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cf-phone">Phone *</label>
+                <input type="tel" id="cf-phone" placeholder="+91 98765 43210" required />
+              </div>
+              <div class="form-group">
+                <label for="cf-city">City</label>
+                <select id="cf-city">
+                  <option value="">Select city...</option>
+                  <option>Delhi NCR</option>
+                  <option>Mumbai</option>
+                  <option>Pune</option>
+                  <option>Bangalore</option>
+                  <option>Hyderabad</option>
+                  <option>Vadodara</option>
+                  <option>Ahmedabad</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cf-message">Message</label>
+              <textarea id="cf-message" rows="4" placeholder="Tell us about your project..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            <div id="contactSuccess" class="form-success" style="display:none;">✓ Thank you! We'll be in touch within 24
+              hours.</div>
+          </form>
+        </div>
+        <div class="contact-calendar-wrap">
+          <h3 class="calendar-title">Book a Meeting</h3>
+          <p class="calendar-note">Select a date and time slot. Meetings can be booked at least 7 days in advance.</p>
+          <div id="meetingCalendar" class="meeting-calendar">
+            <div class="cal-header">
+              <button class="cal-nav" id="calPrev" aria-label="Previous month">&#8249;</button>
+              <span class="cal-month-year" id="calMonthYear"></span>
+              <button class="cal-nav" id="calNext" aria-label="Next month">&#8250;</button>
+            </div>
+            <div class="cal-weekdays">
+              <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+            </div>
+            <div class="cal-grid" id="calGrid"></div>
+          </div>
+          <div id="slotPicker" class="slot-picker" style="display:none;">
+            <h4 class="slot-date-label" id="slotDateLabel"></h4>
+            <div class="slots-grid" id="slotsGrid"></div>
+          </div>
+          <div id="bookingConfirmation" class="booking-confirmation" style="display:none;">
+            <div class="booking-confirm-icon">✓</div>
+            <h4>Meeting Requested!</h4>
+            <p id="bookingConfirmText"></p>
+            <button class="btn btn-outline" id="bookAnotherBtn">Book Another</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════ FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="Assets/InvertedLogo.gif" alt="Experiors" class="footer-logo" />
+        <p class="footer-tagline">Crafting spaces that define you.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="social-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#vision">Vision &amp; Mission</a></li>
+            <li><a href="#how-we-work">How We Work</a></li>
+            <li><a href="#our-work">Our Work</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#about">Harmony Interiors</a></li>
+            <li><a href="#about">Majesty Interiors</a></li>
+            <li><a href="#about">Elysium Interiors</a></li>
+            <li><a href="#estimate">Get Estimate</a></li>
+            <li><a href="#contact">Book a Meeting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>info@experiors.in</li>
+            <li>+91 98765 43210</li>
+            <li>Delhi NCR | Mumbai | Pune</li>
+            <li>Bangalore | Hyderabad</li>
+            <li>Vadodara | Ahmedabad</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Experiors. All rights reserved. <span style="margin-left:2rem;font-size:0.7rem;opacity:0.3;"><a
+            href="admin.html" style="color:inherit;text-decoration:none;" title="">&#9679;</a></span></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

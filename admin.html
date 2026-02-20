@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiors – Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --orange: #F2A444;
+            --deep-orange: #F29849;
+            --brown: #8C5F45;
+            --off-white: #f2f2f2;
+            --dark-grey: #404040;
+            --black: #1a1a1a;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: #1a1a1a;
+            color: var(--off-white);
+            min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            color: var(--orange);
+            text-decoration: none;
+        }
+
+        /* Login */
+        .login-wrap {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: #252525;
+            border: 1px solid rgba(242, 164, 68, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-logo img {
+            height: 50px;
+        }
+
+        .login-title {
+            font-size: 1.4rem;
+            color: var(--orange);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-sub {
+            font-size: 0.85rem;
+            color: #888;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #aaa;
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--off-white);
+            font-size: 0.95rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--orange);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 0.85rem;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--orange), var(--deep-orange));
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .btn-login:hover {
+            opacity: 0.9;
+        }
+
+        .login-error {
+            color: #f87171;
+            font-size: 0.85rem;
+            margin-top: 0.75rem;
+            text-align: center;
+            display: none;
+        }
+
+        /* Admin layout */
+        .admin-wrap {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            width: 240px;
+            background: #111;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            padding: 2rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-right: 1px solid rgba(242, 164, 68, 0.15);
+        }
+
+        .sidebar-logo {
+            margin-bottom: 2rem;
+        }
+
+        .sidebar-logo img {
+            height: 40px;
+        }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #888;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            background: none;
+            font-family: inherit;
+            width: 100%;
+            text-align: left;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            background: rgba(242, 164, 68, 0.12);
+            color: var(--orange);
+        }
+
+        .sidebar-bottom {
+            margin-top: auto;
+        }
+
+        .admin-main {
+            margin-left: 240px;
+            padding: 2.5rem;
+        }
+
+        .admin-header {
+            margin-bottom: 2.5rem;
+        }
+
+        .admin-header h1 {
+            font-size: 1.8rem;
+            color: var(--orange);
+        }
+
+        .admin-header p {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Panels */
+        .admin-panel {
+            display: none;
+        }
+
+        .admin-panel.active {
+            display: block;
+        }
+
+        .panel-card {
+            background: #252525;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .panel-card h3 {
+            font-size: 1.1rem;
+            color: var(--orange);
+            margin-bottom: 1.25rem;
+        }
+
+        textarea {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: var(--off-white);
+            font-size: 0.9rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 80px;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: var(--orange);
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            padding: 0.65rem 1rem;
+            color: var(--off-white);
+            font-size: 0.9rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        select:focus {
+            border-color: var(--orange);
+        }
+
+        select option {
+            background: #252525;
+        }
+
+        .btn {
+            padding: 0.65rem 1.5rem;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--orange), var(--deep-orange));
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-danger {
+            background: rgba(248, 113, 113, 0.15);
+            color: #f87171;
+            border: 1px solid rgba(248, 113, 113, 0.3);
+        }
+
+        .btn-danger:hover {
+            background: rgba(248, 113, 113, 0.25);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--orange);
+            border: 1.5px solid var(--orange);
+        }
+
+        .btn-outline:hover {
+            background: var(--orange);
+            color: #fff;
+        }
+
+        .save-notice {
+            color: #4ade80;
+            font-size: 0.82rem;
+            margin-left: 1rem;
+            display: none;
+        }
+
+        /* FAQ editor */
+        .faq-edit-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-edit-q {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 0.75rem;
+        }
+
+        .faq-edit-q span {
+            color: var(--orange);
+        }
+
+        /* Blog editor */
+        .blog-edit-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-edit-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-edit-row label,
+        .faq-edit-label {
+            font-size: 0.78rem;
+            color: #888;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Calendar admin */
+        .holiday-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .holiday-chip {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(248, 113, 113, 0.12);
+            border: 1px solid rgba(248, 113, 113, 0.3);
+            color: #f87171;
+            padding: 0.3rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.82rem;
+        }
+
+        .holiday-chip button {
+            background: none;
+            border: none;
+            color: #f87171;
+            cursor: pointer;
+            font-size: 1rem;
+            line-height: 1;
+        }
+
+        .add-holiday-row {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        /* Testimonials editor */
+        .testimonial-edit-item {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .t-edit-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .t-edit-label {
+            font-size: 0.78rem;
+            color: #888;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Pricing editor */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .pricing-table th,
+        .pricing-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+        }
+
+        .pricing-table th {
+            color: var(--orange);
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
+        }
+
+        .pricing-table input[type="number"] {
+            width: 120px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            border-radius: 6px;
+            padding: 0.4rem 0.75rem;
+            color: var(--off-white);
+            font-family: inherit;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── LOGIN ── -->
+    <div class="login-wrap" id="loginWrap">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="Assets/InvertedLogo.gif" alt="Experiors" />
+            </div>
+            <h2 class="login-title">Admin Panel</h2>
+            <p class="login-sub">Sign in to manage your website content.</p>
+            <div class="form-group">
+                <label for="adminPass">Password</label>
+                <input type="password" id="adminPass" placeholder="Enter admin password" />
+            </div>
+            <button class="btn-login" id="loginBtn">Sign In</button>
+            <p class="login-error" id="loginError">Incorrect password. Please try again.</p>
+            <p style="text-align:center;margin-top:1.5rem;font-size:0.8rem;color:#666;">
+                <a href="index.html">← Back to Website</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ── ADMIN PANEL ── -->
+    <div class="admin-wrap" id="adminWrap">
+        <aside class="admin-sidebar">
+            <div class="sidebar-logo">
+                <img src="Assets/InvertedLogo.gif" alt="Experiors" />
+            </div>
+            <button class="sidebar-link active" data-panel="dashboard">📊 Dashboard</button>
+            <button class="sidebar-link" data-panel="faq">❓ FAQs</button>
+            <button class="sidebar-link" data-panel="blog">📝 Blog</button>
+            <button class="sidebar-link" data-panel="testimonials">⭐ Testimonials</button>
+            <button class="sidebar-link" data-panel="pricing">💰 Pricing</button>
+            <button class="sidebar-link" data-panel="calendar">📅 Calendar</button>
+            <div class="sidebar-bottom">
+                <a href="index.html" class="sidebar-link">🌐 View Website</a>
+                <button class="sidebar-link" id="logoutBtn">🚪 Logout</button>
+            </div>
+        </aside>
+
+        <main class="admin-main">
+            <!-- Dashboard -->
+            <div class="admin-panel active" id="panel-dashboard">
+                <div class="admin-header">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Manage your website content from here.</p>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;">
+                    <div class="panel-card" style="text-align:center;">
+                        <div style="font-size:2rem;color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:800;"
+                            id="dash-faqs">27</div>
+                        <div style="color:#888;font-size:0.85rem;margin-top:0.25rem;">FAQ Items</div>
+                    </div>
+                    <div class="panel-card" style="text-align:center;">
+                        <div style="font-size:2rem;color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:800;"
+                            id="dash-blogs">3</div>
+                        <div style="color:#888;font-size:0.85rem;margin-top:0.25rem;">Blog Posts</div>
+                    </div>
+                    <div class="panel-card" style="text-align:center;">
+                        <div style="font-size:2rem;color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:800;"
+                            id="dash-holidays">0</div>
+                        <div style="color:#888;font-size:0.85rem;margin-top:0.25rem;">Holidays Set</div>
+                    </div>
+                    <div class="panel-card" style="text-align:center;">
+                        <div style="font-size:2rem;color:var(--orange);font-family:'Montserrat',sans-serif;font-weight:800;"
+                            id="dash-estimates">0</div>
+                        <div style="color:#888;font-size:0.85rem;margin-top:0.25rem;">Saved Estimates</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Editor -->
+            <div class="admin-panel" id="panel-faq">
+                <div class="admin-header">
+                    <h1>FAQ Management</h1>
+                    <p>Edit FAQ answers. Changes are reflected immediately on the website.</p>
+                </div>
+                <div class="panel-card">
+                    <h3>Edit FAQ Answers</h3>
+                    <div id="faqEditor"></div>
+                    <button class="btn btn-primary" id="saveFaqsBtn">Save All FAQs</button>
+                    <span class="save-notice" id="faqSaveNotice">✓ Saved!</span>
+                    <button class="btn btn-outline" style="margin-left:0.75rem;" id="resetFaqsBtn">Reset to
+                        Defaults</button>
+                </div>
+            </div>
+
+            <!-- Blog Editor -->
+            <div class="admin-panel" id="panel-blog">
+                <div class="admin-header">
+                    <h1>Blog Management</h1>
+                    <p>Edit blog post titles, excerpts, tags, and dates.</p>
+                </div>
+                <div class="panel-card">
+                    <h3>Blog Posts</h3>
+                    <div id="blogEditor"></div>
+                    <button class="btn btn-primary" id="saveBlogBtn">Save Blog Posts</button>
+                    <span class="save-notice" id="blogSaveNotice">✓ Saved!</span>
+                </div>
+            </div>
+
+            <!-- Testimonials Editor -->
+            <div class="admin-panel" id="panel-testimonials">
+                <div class="admin-header">
+                    <h1>Testimonials</h1>
+                    <p>Edit client testimonials shown on the website.</p>
+                </div>
+                <div class="panel-card">
+                    <h3>Client Testimonials</h3>
+                    <div id="testimonialsEditor"></div>
+                    <button class="btn btn-primary" id="saveTestimonialsBtn">Save Testimonials</button>
+                    <span class="save-notice" id="testimonialsSaveNotice">✓ Saved!</span>
+                </div>
+            </div>
+
+            <!-- Pricing Editor -->
+            <div class="admin-panel" id="panel-pricing">
+                <div class="admin-header">
+                    <h1>Pricing Rates</h1>
+                    <p>Set the per sq ft rates used for Quick and Detailed Estimates.</p>
+                </div>
+                <div class="panel-card">
+                    <h3>Estimate Pricing (₹ per sq ft)</h3>
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Min Rate (₹/sqft)</th>
+                                <th>Max Rate (₹/sqft)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Harmony</td>
+                                <td><input type="number" id="pr-harmony-min" value="1800" /></td>
+                                <td><input type="number" id="pr-harmony-max" value="2500" /></td>
+                            </tr>
+                            <tr>
+                                <td>Majesty</td>
+                                <td><input type="number" id="pr-majesty-min" value="2500" /></td>
+                                <td><input type="number" id="pr-majesty-max" value="3800" /></td>
+                            </tr>
+                            <tr>
+                                <td>Elysium</td>
+                                <td><input type="number" id="pr-elysium-min" value="4000" /></td>
+                                <td><input type="number" id="pr-elysium-max" value="6500" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="margin-top:1.25rem;">
+                        <button class="btn btn-primary" id="savePricingBtn">Save Pricing</button>
+                        <span class="save-notice" id="pricingSaveNotice">✓ Saved!</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Admin -->
+            <div class="admin-panel" id="panel-calendar">
+                <div class="admin-header">
+                    <h1>Calendar Management</h1>
+                    <p>Set holidays and manage meeting availability.</p>
+                </div>
+                <div class="panel-card">
+                    <h3>Holidays &amp; Blocked Dates</h3>
+                    <p style="color:#888;font-size:0.85rem;margin-bottom:1rem;">Dates marked as holidays will not be
+                        available for client bookings.</p>
+                    <div class="holiday-list" id="holidayList"></div>
+                    <div class="add-holiday-row">
+                        <input type="date" id="holidayDateInput" />
+                        <button class="btn btn-primary" id="addHolidayBtn">Add Holiday</button>
+                    </div>
+                    <div style="margin-top:1.5rem;">
+                        <button class="btn btn-danger" id="clearHolidaysBtn">Clear All Holidays</button>
+                        <span class="save-notice" id="holidaySaveNotice">✓ Saved!</span>
+                    </div>
+                </div>
+                <div class="panel-card">
+                    <h3>Upcoming Bookings</h3>
+                    <div id="bookingsList" style="color:#888;font-size:0.9rem;">Loading...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const ADMIN_PASSWORD = 'experiors2025';
+
+        // Default data
+        const DEFAULT_FAQS = [
+            { q: 'What services do you offer?', a: 'We offer end-to-end interior design and construction services for residential and commercial spaces, including design consultation, material selection, civil work, carpentry, electrical, plumbing, painting, and handover — all under one roof.' },
+            { q: 'What services are not in your scope?', a: 'We do not undertake structural changes, external façade work, landscaping, or civil construction beyond the interior scope.' },
+            { q: 'How is the payment schedule structured?', a: 'Payments are milestone-based: typically 10% at agreement, 40% at material procurement, 30% during execution, 15% at near-completion, and 5% at final handover.' },
+            { q: 'Is the advance payment refundable?', a: 'The ₹1,000 registration deposit is fully refundable if we are unable to meaningfully engage with your project.' },
+            { q: 'How long will the project take?', a: 'Typical timelines range from 45–90 days depending on project size, scope, and category.' },
+            { q: 'How will I receive project updates on a daily basis?', a: 'You will receive daily photo/video updates via WhatsApp from your dedicated Site Supervisor.' },
+            { q: 'How are design revisions handled?', a: 'We offer up to 3 design revision rounds at no extra cost. Additional revisions are charged at a nominal fee.' },
+            { q: 'How do we verify material authenticity?', a: 'All materials are sourced from authorized dealers and come with manufacturer warranties.' },
+            { q: 'Can we get our own material?', a: 'Yes, you may supply certain materials. However, Experiors will not be responsible for quality, warranty, or delays from client-supplied materials.' },
+            { q: 'Do I get a Point of Contact (SPOC) for my project?', a: 'Absolutely. Every project is assigned a dedicated Project Manager who is your single point of contact.' },
+            { q: 'How can I add extra work during execution?', a: 'Additional scope can be added via a formal Change Order, which includes revised cost and timeline.' },
+            { q: 'How often can I meet with a designer?', a: 'You can schedule meetings with your designer at any stage. Typically 2–3 design meetings are held before finalization.' },
+            { q: 'Who will take approvals from the society RWA?', a: 'We assist in preparing documents and drawings for RWA submission. The formal application is the client\'s responsibility.' },
+            { q: 'How are disputes handled?', a: 'All disputes are first addressed through mutual discussion, then escalated to senior management if unresolved.' },
+            { q: 'Can I cancel the project midway?', a: 'Yes, with written notice. Cancellation charges apply based on work completed and materials procured.' },
+            { q: 'Can I pause the project midway?', a: 'Projects can be paused for up to 30 days with prior notice. Extended pauses may attract remobilization charges.' },
+            { q: 'Are there any hidden charges?', a: 'No. We pride ourselves on complete cost transparency. All changes to scope are documented via Change Orders.' },
+            { q: 'How will I get ₹1,000 back if I cancel the project?', a: 'The ₹1,000 deposit is refunded within 7 working days to the original payment method.' },
+            { q: 'Can I select some elements from Majesty and some from Harmony?', a: 'No. All rooms must use specifications from a single category to maintain design coherence.' },
+            { q: 'Is there any late handover penalty?', a: 'Yes. If Experiors delays handover beyond the agreed date, a penalty as defined in the agreement is applicable.' },
+            { q: 'Is there a handover checklist?', a: 'Yes. A comprehensive handover checklist is shared before the final walkthrough.' },
+            { q: 'Why do you ask for payment for booking an appointment?', a: 'The ₹1,000 deposit ensures we engage only with serious clients. It is fully refundable.' },
+            { q: 'Is the payment refundable?', a: 'Yes, the ₹1,000 registration deposit is fully refundable if we cannot meaningfully engage with your project.' },
+            { q: 'How many days will interior work in my house take?', a: 'Depending on size and scope, interior work typically takes 45–90 days.' },
+            { q: 'Can I hire my own designer?', a: 'You may work with an external designer for concept and drawings. Experiors\' team will handle execution.' },
+            { q: 'Do you offer any warranty on your work?', a: 'Yes. We offer a 1-year workmanship warranty. Material warranties are per manufacturer terms.' },
+            { q: 'Why should I choose Experiors?', a: 'Experiors combines aesthetic excellence with operational integrity — transparent pricing, dedicated project management, and a track record of delivering premium interiors on time and on budget.' }
+        ];
+
+        const DEFAULT_BLOGS = [
+            { tag: 'Design Trends', title: '5 Interior Design Trends Dominating 2025', excerpt: 'From biophilic design to japandi minimalism — discover the styles reshaping premium Indian homes this year.', date: 'Feb 10, 2025' },
+            { tag: 'Material Guide', title: 'Marble vs Quartz: Which Countertop is Right for You?', excerpt: 'A deep dive into the pros, cons, and costs of the two most sought-after countertop materials in luxury kitchens.', date: 'Jan 28, 2025' },
+            { tag: 'Smart Homes', title: 'How Smart Home Automation is Changing Interior Design', excerpt: 'Voice-controlled lighting, automated curtains, and invisible tech — the future of luxury living is already here.', date: 'Jan 15, 2025' }
+        ];
+
+        const DEFAULT_TESTIMONIALS = [
+            { name: 'Rajesh Sharma', loc: 'Adani Samsara Vilasa, Gurugram', text: '"Experiors transformed our apartment into a masterpiece. The attention to detail, the quality of materials, and the professionalism of the team was unmatched."' },
+            { name: 'Priya Kapoor', loc: 'Sobha International City, Gurugram', text: '"The Majesty package exceeded all our expectations. From the initial coffee meeting to the final handover, every step was transparent and on schedule."' },
+            { name: 'Arjun Mehta', loc: 'Emaar Palm Drive, Gurugram', text: '"We chose the Elysium package for our penthouse and it was worth every rupee. The craftsmanship is extraordinary."' },
+            { name: 'Sunita Gupta', loc: 'Mahendra Aura, Noida', text: '"What sets Experiors apart is their honesty. No hidden costs, no surprises. That integrity is rare in this industry."' }
+        ];
+
+        function getLS(key, def) { try { return JSON.parse(localStorage.getItem('exp_' + key)) || def; } catch { return def; } }
+        function setLS(key, val) { localStorage.setItem('exp_' + key, JSON.stringify(val)); }
+        function showNotice(id) { const el = document.getElementById(id); el.style.display = 'inline'; setTimeout(() => el.style.display = 'none', 2500); }
+
+        // ── Login ──
+        document.getElementById('loginBtn').addEventListener('click', doLogin);
+        document.getElementById('adminPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+        function doLogin() {
+            const pw = document.getElementById('adminPass').value;
+            if (pw === ADMIN_PASSWORD) {
+                document.getElementById('loginWrap').style.display = 'none';
+                document.getElementById('adminWrap').style.display = 'flex';
+                initAdmin();
+            } else {
+                document.getElementById('loginError').style.display = 'block';
+            }
+        }
+
+        // ── Sidebar navigation ──
+        document.querySelectorAll('.sidebar-link[data-panel]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.sidebar-link').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.admin-panel').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+                document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+            });
+        });
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            document.getElementById('adminWrap').style.display = 'none';
+            document.getElementById('loginWrap').style.display = 'flex';
+            document.getElementById('adminPass').value = '';
+        });
+
+        function initAdmin() {
+            initDashboard();
+            initFaqEditor();
+            initBlogEditor();
+            initTestimonialsEditor();
+            initPricingEditor();
+            initCalendarAdmin();
+        }
+
+        // Dashboard
+        function initDashboard() {
+            const faqs = getLS('faqs', DEFAULT_FAQS);
+            const holidays = getLS('holidays', []);
+            const estimates = getLS('saved_estimates', []);
+            document.getElementById('dash-faqs').textContent = faqs.length;
+            document.getElementById('dash-holidays').textContent = holidays.length;
+            document.getElementById('dash-estimates').textContent = estimates.length;
+        }
+
+        // FAQ Editor
+        function initFaqEditor() {
+            const faqs = getLS('faqs', DEFAULT_FAQS);
+            const container = document.getElementById('faqEditor');
+            container.innerHTML = '';
+            faqs.forEach((faq, i) => {
+                const div = document.createElement('div');
+                div.className = 'faq-edit-item';
+                div.innerHTML = `
+      <div class="faq-edit-q"><span>${i + 1}.</span> ${faq.q}</div>
+      <span class="faq-edit-label">Answer</span>
+      <textarea data-idx="${i}" rows="3">${faq.a}</textarea>`;
+                container.appendChild(div);
+            });
+            document.getElementById('saveFaqsBtn').addEventListener('click', () => {
+                const updated = [...faqs];
+                container.querySelectorAll('textarea').forEach(ta => {
+                    updated[parseInt(ta.dataset.idx)].a = ta.value;
+                });
+                setLS('faqs', updated);
+                showNotice('faqSaveNotice');
+            });
+            document.getElementById('resetFaqsBtn').addEventListener('click', () => {
+                if (confirm('Reset all FAQ answers to defaults?')) {
+                    setLS('faqs', DEFAULT_FAQS);
+                    initFaqEditor();
+                }
+            });
+        }
+
+        // Blog Editor
+        function initBlogEditor() {
+            const blogs = getLS('blogs', DEFAULT_BLOGS);
+            const container = document.getElementById('blogEditor');
+            container.innerHTML = '';
+            blogs.forEach((blog, i) => {
+                const div = document.createElement('div');
+                div.className = 'blog-edit-item';
+                div.innerHTML = `
+      <div class="blog-edit-row">
+        <div><label class="blog-edit-label">Tag</label><input type="text" data-blog="${i}" data-field="tag" value="${blog.tag}" style="width:100%"/></div>
+        <div><label class="blog-edit-label">Date</label><input type="text" data-blog="${i}" data-field="date" value="${blog.date}" style="width:100%"/></div>
+      </div>
+      <div style="margin-bottom:0.75rem"><label class="blog-edit-label">Title</label><input type="text" data-blog="${i}" data-field="title" value="${blog.title}" style="width:100%"/></div>
+      <div><label class="blog-edit-label">Excerpt</label><textarea data-blog="${i}" data-field="excerpt" rows="2">${blog.excerpt}</textarea></div>`;
+                container.appendChild(div);
+            });
+            document.getElementById('saveBlogBtn').addEventListener('click', () => {
+                const updated = blogs.map(b => ({ ...b }));
+                container.querySelectorAll('[data-blog]').forEach(el => {
+                    updated[parseInt(el.dataset.blog)][el.dataset.field] = el.value;
+                });
+                setLS('blogs', updated);
+                showNotice('blogSaveNotice');
+            });
+        }
+
+        // Testimonials Editor
+        function initTestimonialsEditor() {
+            const testimonials = getLS('testimonials', DEFAULT_TESTIMONIALS);
+            const container = document.getElementById('testimonialsEditor');
+            container.innerHTML = '';
+            testimonials.forEach((t, i) => {
+                const div = document.createElement('div');
+                div.className = 'testimonial-edit-item';
+                div.innerHTML = `
+      <div class="t-edit-row">
+        <div><label class="t-edit-label">Client Name</label><input type="text" data-t="${i}" data-field="name" value="${t.name}" style="width:100%"/></div>
+        <div><label class="t-edit-label">Location / Project</label><input type="text" data-t="${i}" data-field="loc" value="${t.loc}" style="width:100%"/></div>
+      </div>
+      <label class="t-edit-label">Testimonial Text</label>
+      <textarea data-t="${i}" data-field="text" rows="3">${t.text}</textarea>`;
+                container.appendChild(div);
+            });
+            document.getElementById('saveTestimonialsBtn').addEventListener('click', () => {
+                const updated = testimonials.map(t => ({ ...t }));
+                container.querySelectorAll('[data-t]').forEach(el => {
+                    updated[parseInt(el.dataset.t)][el.dataset.field] = el.value;
+                });
+                setLS('testimonials', updated);
+                showNotice('testimonialsSaveNotice');
+            });
+        }
+
+        // Pricing Editor
+        function initPricingEditor() {
+            const pricing = getLS('pricing', null);
+            if (pricing) {
+                document.getElementById('pr-harmony-min').value = pricing.Harmony.min;
+                document.getElementById('pr-harmony-max').value = pricing.Harmony.max;
+                document.getElementById('pr-majesty-min').value = pricing.Majesty.min;
+                document.getElementById('pr-majesty-max').value = pricing.Majesty.max;
+                document.getElementById('pr-elysium-min').value = pricing.Elysium.min;
+                document.getElementById('pr-elysium-max').value = pricing.Elysium.max;
+            }
+            document.getElementById('savePricingBtn').addEventListener('click', () => {
+                const p = {
+                    Harmony: { min: +document.getElementById('pr-harmony-min').value, max: +document.getElementById('pr-harmony-max').value },
+                    Majesty: { min: +document.getElementById('pr-majesty-min').value, max: +document.getElementById('pr-majesty-max').value },
+                    Elysium: { min: +document.getElementById('pr-elysium-min').value, max: +document.getElementById('pr-elysium-max').value }
+                };
+                setLS('pricing', p);
+                showNotice('pricingSaveNotice');
+            });
+        }
+
+        // Calendar Admin
+        function initCalendarAdmin() {
+            renderHolidays();
+            document.getElementById('addHolidayBtn').addEventListener('click', () => {
+                const val = document.getElementById('holidayDateInput').value;
+                if (!val) return;
+                const holidays = getLS('holidays', []);
+                if (!holidays.includes(val)) { holidays.push(val); setLS('holidays', holidays); }
+                renderHolidays();
+                showNotice('holidaySaveNotice');
+            });
+            document.getElementById('clearHolidaysBtn').addEventListener('click', () => {
+                if (confirm('Clear all holidays?')) { setLS('holidays', []); renderHolidays(); }
+            });
+            renderBookings();
+        }
+
+        function renderHolidays() {
+            const holidays = getLS('holidays', []);
+            const list = document.getElementById('holidayList');
+            list.innerHTML = holidays.length ? '' : '<span style="color:#666;font-size:0.85rem;">No holidays set.</span>';
+            holidays.sort().forEach(d => {
+                const chip = document.createElement('div');
+                chip.className = 'holiday-chip';
+                chip.innerHTML = `${d} <button data-date="${d}" title="Remove">×</button>`;
+                chip.querySelector('button').addEventListener('click', () => {
+                    const h = getLS('holidays', []).filter(x => x !== d);
+                    setLS('holidays', h); renderHolidays();
+                });
+                list.appendChild(chip);
+            });
+            document.getElementById('dash-holidays').textContent = holidays.length;
+        }
+
+        function renderBookings() {
+            const container = document.getElementById('bookingsList');
+            const keys = Object.keys(localStorage).filter(k => k.startsWith('exp_booked_'));
+            if (!keys.length) { container.textContent = 'No bookings yet.'; return; }
+            let html = '<table style="width:100%;border-collapse:collapse;">';
+            html += '<tr><th style="text-align:left;padding:0.5rem;color:var(--orange);font-size:0.82rem;">Date</th><th style="text-align:left;padding:0.5rem;color:var(--orange);font-size:0.82rem;">Booked Slots</th></tr>';
+            keys.sort().forEach(k => {
+                const date = k.replace('exp_booked_', '');
+                const slots = JSON.parse(localStorage.getItem(k)) || [];
+                html += `<tr><td style="padding:0.5rem;color:#ccc;font-size:0.85rem;">${date}</td><td style="padding:0.5rem;color:#aaa;font-size:0.85rem;">${slots.join(', ')}</td></tr>`;
+            });
+            html += '</table>';
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+
+</html>

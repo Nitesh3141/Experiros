@@ -1,0 +1,42 @@
+The website will provide the client to generate an estimate for interiors of their house. Estimates will of two types,
+1. Quick Estimate
+2. Detailed Estimate
+
+All estimation calculations will be done on the server side and will be shown to the client as a range of values on a line/slider.
+
+Quick Estimate will ask for
+1. area of the house and 
+2. type of work (New Interiors vs Renovation) 
+3. Location of the project.
+4. Category of interiors (Harmony/Majesty/Elysium).
+
+
+The estimate will be shown as a range of values on a line/slider.
+
+
+Detailed Estimate will require the client to provide more details as below:
+1. area of house 
+2. Number of bedrooms
+3. Number of bathrooms
+4. Number of balconies
+5. Is one of the bedrooms a kid's room
+6. Mandir /Pooja unit required
+7. Study.
+. 
+Is renovation required? If yes then ask the client to select the renovation items required.
+Client will also be required to upload the floor plan of the house.
+
+For each of the rooms defined above including living, dining and kitchen (except balconies), the client will be asked to select specifications of materials depending on the type of Interiors. At a time client can select one category only. Separate categories for diferent rooms is not allowed. Specifications from different categories (e. Flooring from Majesty and Wall finishes from Harmony) are not allowed.
+The first bedroom will be called "Master Bed room". Corresponding bathroom will be called "Master Bathroom". The client may copy spedicification of one bedroom to another bedroom.
+The specifications for each category can be found in this file D:\WORK\Website\specifications.csv
+
+The client may generate different estimates for different categories. He can also save the estimates.
+
+Note about specifications:
+Bathroom fittings will be applicable for bathrooms only not other rooms.
+Wardrobe applicable for bedrooms only not for other rooms
+TV unit for bedrooms only not for other rooms
+Designer wall finish and false ceiling is not applicable for kitchen and bathrooms.
+Counter top is applicable for kitchen only.
+Doors applicable for bathrooms only
+
