@@ -66,33 +66,20 @@ const RENOVATION_MULTIPLIER = 0.6;
 
 // Default FAQ data
 const DEFAULT_FAQS = [
-    { q: 'What services do you offer?', a: 'We offer end-to-end interior design and construction services for residential and commercial spaces, including design consultation, material selection, civil work, carpentry, electrical, plumbing, painting, and handover — all under one roof.' },
-    { q: 'What services are not in your scope?', a: 'We do not undertake structural changes, external façade work, landscaping, or civil construction beyond the interior scope. We also do not supply loose furniture unless specifically contracted.' },
-    { q: 'How is the payment schedule structured?', a: 'Payments are milestone-based: typically 10% at agreement, 40% at material procurement, 30% during execution, 15% at near-completion, and 5% at final handover. Exact milestones are defined in the project agreement.' },
-    { q: 'Is the advance payment refundable?', a: 'The ₹1,000 registration deposit is fully refundable if we are unable to meaningfully engage with your project. Project advance payments follow the terms defined in the signed agreement.' },
-    { q: 'How long will the project take?', a: 'Typical timelines range from 45–90 days depending on project size, scope, and category. A detailed timeline is shared at the agreement stage.' },
-    { q: 'How will I receive project updates on a daily basis?', a: 'You will receive daily photo/video updates via WhatsApp from your dedicated Site Supervisor. A weekly summary call with your Project Manager is also scheduled.' },
-    { q: 'How are design revisions handled?', a: 'We offer up to 3 design revision rounds at no extra cost. Additional revisions beyond this are charged at a nominal fee, agreed upon in advance.' },
-    { q: 'How do we verify material authenticity?', a: 'All materials are sourced from authorized dealers and come with manufacturer warranties. You are welcome to visit our material yard or accompany our team for procurement.' },
-    { q: 'Can we get our own material?', a: 'Yes, you may supply certain materials. However, Experiors will not be responsible for quality, warranty, or delays arising from client-supplied materials.' },
-    { q: 'Do I get a Point of Contact (SPOC) for my project?', a: 'Absolutely. Every project is assigned a dedicated Project Manager who is your single point of contact from design to handover.' },
-    { q: 'How can I add extra work during execution?', a: 'Additional scope can be added via a formal Change Order, which includes revised cost and timeline. No extra work is executed without written approval.' },
-    { q: 'How often can I meet with a designer?', a: 'You can schedule meetings with your designer at any stage. Typically, 2–3 design meetings are held before finalization, and additional meetings can be arranged as needed.' },
-    { q: 'Who will take approvals from the society RWA?', a: 'We assist you in preparing the necessary documents and drawings for RWA submission. However, the formal application and approval process is the client\'s responsibility.' },
-    { q: 'How are disputes handled?', a: 'All disputes are first addressed through mutual discussion. If unresolved, they are escalated to our senior management. Our agreements include a formal dispute resolution clause.' },
-    { q: 'Can I cancel the project midway?', a: 'Yes, with written notice. Cancellation charges apply based on work completed and materials procured. Details are specified in the project agreement.' },
-    { q: 'Can I pause the project midway?', a: 'Projects can be paused for up to 30 days with prior notice. Extended pauses may attract remobilization charges and revised timelines.' },
-    { q: 'Are there any hidden charges?', a: 'No. We pride ourselves on complete cost transparency. All costs are itemized in the estimate and agreement. Any changes to scope are documented via Change Orders before execution.' },
-    { q: 'How will I get ₹1,000 back if I cancel the project?', a: 'If we are unable to meaningfully engage with your project, the ₹1,000 deposit is refunded within 7 working days to the original payment method.' },
-    { q: 'Can I select some elements from Majesty and some from Harmony?', a: 'No. To maintain design coherence and quality standards, all rooms must use specifications from a single category. Mixing categories across rooms is not permitted.' },
-    { q: 'Is there any late handover penalty?', a: 'Yes. If Experiors delays handover beyond the agreed date (excluding client-caused delays or force majeure), a penalty as defined in the agreement is applicable.' },
-    { q: 'Is there a handover checklist?', a: 'Yes. A comprehensive handover checklist is shared with you before the final walkthrough. All items must be signed off before keys are handed over.' },
-    { q: 'Why do you ask for payment for booking an appointment?', a: 'The ₹1,000 deposit ensures we engage only with serious clients, allowing us to dedicate quality time and resources to each project. It is fully refundable.' },
-    { q: 'Is the payment refundable?', a: 'Yes, the ₹1,000 registration deposit is fully refundable if we cannot meaningfully engage with your project.' },
-    { q: 'How many days will interior work in my house take?', a: 'Depending on the size and scope, interior work typically takes 45–90 days. A detailed project schedule is shared at the agreement stage.' },
-    { q: 'Can I hire my own designer?', a: 'You may work with an external designer for concept and drawings. However, Experiors\' in-house team will be responsible for execution, and design coordination will be managed through us.' },
-    { q: 'Do you offer any warranty on your work?', a: 'Yes. We offer a 1-year workmanship warranty on all executed work. Material warranties are as per the respective manufacturer\'s terms.' },
-    { q: 'Why should I choose Experiors?', a: 'Experiors combines aesthetic excellence with operational integrity. We offer transparent pricing, dedicated project management, OTP-verified client onboarding, and a track record of delivering premium interiors on time and on budget across 7 cities.' }
+    { q: "How do I get started with Experiors?", a: "You can begin by exploring our portfolio and sharing basic details of your home, such as floor plan, size, and requirements. Based on this, we provide a preliminary estimate to help you understand the expected investment range." },
+    { q: "Is the preliminary estimate free?", a: "Yes. The preliminary estimate is provided without any obligation. It helps you evaluate budget feasibility before proceeding further." },
+    { q: "Why is there a ₹1,000 token deposit?", a: "The fully refundable ₹1,000 token deposit confirms serious intent to proceed with consultation and detailed estimation. It allows us to initiate structured discussions and allocate time for requirement analysis." },
+    { q: "Is the ₹1,000 deposit refundable?", a: "Yes. The amount is refundable as per the terms shared during registration. It is collected purely to ensure structured engagement." },
+    { q: "What happens during the consultation meeting?", a: "During the consultation, we understand your lifestyle, storage needs, aesthetic preferences, functional expectations, and budget comfort. This discussion forms the foundation for scope definition and detailed estimation." },
+    { q: "How is the detailed estimate prepared?", a: "The detailed estimate is created based on your finalized requirements after consultation. It includes scope inclusions, material specifications, execution elements, and overall project investment — ensuring complete transparency." },
+    { q: "Are there any hidden costs?", a: "No. Our estimates are comprehensive and clearly outline what is included in the scope. Any additional requests beyond the agreed scope are discussed and approved separately." },
+    { q: "When is the agreement signed?", a: "The agreement is formalized after you review and approve the detailed estimate. It outlines the finalized scope, timelines, payment milestones, and quality standards." },
+    { q: "Do you provide design revisions?", a: "Yes. During the design development stage, you can review the concepts and provide feedback. Revisions are incorporated before final approval." },
+    { q: "How long does the entire process take?", a: "Project timelines vary depending on scope, size, and complexity. A defined timeline is shared in the agreement stage, and we strictly adhere to committed delivery schedules." },
+    { q: "Will I receive project updates during execution?", a: "Yes. We provide regular progress updates and ensure disciplined project management to maintain transparency throughout execution." },
+    { q: "Do you handle both design and construction?", a: "Yes. Experiors is an integrated design-and-build firm. We manage the entire journey — from concept and design development to execution and final handover." },
+    { q: "Do you work only on residential projects?", a: "While we specialize in premium residential interiors, we also undertake select commercial interior projects aligned with our quality and execution standards." },
+    { q: "What makes Experiors different from other interior firms?", a: "Our differentiation lies in: Transparent costing, Structured process flow, Defined timelines, Integrated design and execution, and Accountability at every stage. We don’t just design spaces — we deliver promises." }
 ];
 
 // ── Helpers ────────────────────────────────────────────────
@@ -157,8 +144,21 @@ function getAdminData(key, def) {
 })();
 
 // ══════════════════════════════════════════════════════════
-// GALLERY
+// HERO SLIDESHOW
 // ══════════════════════════════════════════════════════════
+(function initHeroSlideshow() {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+    let current = 0;
+    function nextSlide() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }
+    setInterval(nextSlide, 5000);
+})();
+
+
 (function initGallery() {
     const filters = document.querySelectorAll('.gallery-filter');
     const items = document.querySelectorAll('.gallery-item');
@@ -840,6 +840,232 @@ function saveEstimateForClient(mobile, estimate) {
         localStorage.setItem(key, JSON.stringify(list));
     } catch (e) { /* silent */ }
 }
+
+// ══════════════════════════════════════════════════════════
+// ESTIMATE GENERATION (Quick & Detailed)
+// ══════════════════════════════════════════════════════════
+(function initEstimates() {
+    const quickForm = document.getElementById('quickEstimateForm');
+    const quickResult = document.getElementById('quickEstimateResult');
+
+    if (quickForm) {
+        quickForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const area = parseFloat(document.getElementById('qe-area').value);
+            const workType = document.getElementById('qe-worktype').value;
+            const category = document.getElementById('qe-category').value;
+
+            if (!area || !workType || !category) return;
+
+            const basePricing = PRICING[category];
+            let min = area * basePricing.min;
+            let max = area * basePricing.max;
+
+            if (workType === 'renovation') {
+                min *= RENOVATION_MULTIPLIER;
+                max *= RENOVATION_MULTIPLIER;
+            }
+
+            // Show results
+            document.getElementById('qeMin').textContent = fmt(min);
+            document.getElementById('qeMax').textContent = fmt(max);
+            document.getElementById('qeSliderMin').textContent = fmt(min);
+            document.getElementById('qeSliderMax').textContent = fmt(max);
+
+            // Update slider position (midpoint as demo)
+            const slider = document.getElementById('qeSlider');
+            const avg = (min + max) / 2;
+            const percent = Math.min(100, (avg / 10000000) * 100); // Scale 0 to 1CR
+            slider.value = percent;
+
+            quickResult.style.display = 'block';
+            quickForm.style.display = 'none';
+        });
+    }
+
+    // Detailed - Renovation Items Toggle
+    const workTypeSelect = document.getElementById('hd-worktype');
+    const renoWrap = document.getElementById('renovationItemsWrap');
+    if (workTypeSelect && renoWrap) {
+        workTypeSelect.addEventListener('change', function () {
+            renoWrap.style.display = this.value === 'renovation' ? 'block' : 'none';
+        });
+    }
+
+    // Toggle Detailed Estimate Panels
+    // DETAILED ESTIMATE FLOW
+    const detRegForm = document.getElementById('detRegForm');
+    const otpForm = document.getElementById('otpForm');
+    const payNowBtn = document.getElementById('payNowBtn');
+    const houseDetailsForm = document.getElementById('houseDetailsForm');
+    const roomSpecsContainer = document.getElementById('roomSpecsContainer');
+    const detCalcBtn = document.getElementById('detCalcEstimate');
+
+    let currentDetailedData = {};
+    let emailOtp = '', mobileOtp = '';
+
+    function showDetStep(n) {
+        document.querySelectorAll('.detailed-step').forEach((s, idx) => {
+            s.style.display = (idx + 1 === n) ? 'block' : 'none';
+        });
+    }
+
+    // Step 1: RegGate
+    if (detRegForm) {
+        detRegForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            emailOtp = genOtp();
+            mobileOtp = genOtp();
+            document.getElementById('demoEmailOtp').textContent = emailOtp;
+            document.getElementById('demoMobileOtp').textContent = mobileOtp;
+            showDetStep(2);
+        });
+    }
+
+    // Step 2: OTP Verify
+    if (otpForm) {
+        otpForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const eo = document.getElementById('otp-email').value.trim();
+            const mo = document.getElementById('otp-mobile').value.trim();
+            if (eo === emailOtp && mo === mobileOtp) {
+                showDetStep(3);
+            } else {
+                alert('Invalid OTPs. Please check the demo codes.');
+            }
+        });
+    }
+
+    // Step 3: Payment
+    if (payNowBtn) {
+        payNowBtn.addEventListener('click', () => {
+            showDetStep(4);
+        });
+    }
+
+    // Step 4: House Details
+    if (houseDetailsForm) {
+        houseDetailsForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const area = parseFloat(document.getElementById('hd-area').value);
+            const bedrooms = parseInt(document.getElementById('hd-bedrooms').value);
+            const bathrooms = parseInt(document.getElementById('hd-bathrooms').value);
+            const balconies = parseInt(document.getElementById('hd-balconies').value);
+            const cat = document.querySelector('input[name="hd-cat"]:checked').value;
+
+            currentDetailedData = {
+                area,
+                bedrooms,
+                bathrooms,
+                balconies,
+                category: cat,
+                kidsRoom: document.getElementById('hd-kidsroom').checked,
+                mandir: document.getElementById('hd-mandir').checked,
+                study: document.getElementById('hd-study').checked,
+                workType: document.getElementById('hd-worktype').value
+            };
+
+            generateRoomMatrix();
+            showDetStep(5);
+        });
+    }
+
+    // Step 5: Room Spec Matrix
+    function generateRoomMatrix() {
+        const cat = currentDetailedData.category;
+        const specs = SPECS[cat];
+        let html = '';
+
+        const rooms = ['Living Room', 'Dining Room', 'Kitchen'];
+        for (let i = 1; i <= currentDetailedData.bedrooms; i++) {
+            rooms.push(i === 1 ? 'Master Bedroom' : `Bedroom ${i}`);
+        }
+        for (let i = 1; i <= currentDetailedData.bathrooms; i++) {
+            rooms.push(i === 1 ? 'Master Bathroom' : `Bathroom ${i}`);
+        }
+        if (currentDetailedData.kidsRoom) rooms.push("Kid's Room");
+        if (currentDetailedData.study) rooms.push("Study Room");
+        if (currentDetailedData.mandir) rooms.push("Mandir / Pooja Unit");
+
+        rooms.forEach((room, rIdx) => {
+            html += `<div class="room-spec-card" data-room="${room}">
+                <h4>${room}</h4>
+                <div class="spec-grid">`;
+
+            for (const [group, options] of Object.entries(specs)) {
+                // Applicability Rules
+                const isBath = room.toLowerCase().includes('bathroom');
+                const isBed = room.toLowerCase().includes('bedroom') || room.toLowerCase().includes('kids');
+                const isKitchen = room.toLowerCase().includes('kitchen');
+
+                if (group === 'Bathroom Fittings' && !isBath) continue;
+                if (group === 'Wardrobe' && !isBed) continue;
+                if (group === 'TV Unit' && !isBed && !room.includes('Living')) continue;
+                if (group === 'Counter Top' && !isKitchen) continue;
+                if ((group === 'Designer Wall Finish' || group === 'False Ceiling') && (isKitchen || isBath)) continue;
+                if (group === 'Doors' && !isBath) continue;
+
+                html += `<div class="spec-item">
+                    <label>${group}</label>
+                    <select class="room-spec-select" data-group="${group}">
+                        ${options.map(o => `<option>${o}</option>`).join('')}
+                    </select>
+                </div>`;
+            }
+
+            html += `</div>`;
+            if (room.includes('Bedroom') && room !== 'Master Bedroom') {
+                html += `<button type="button" class="btn btn-outline btn-sm copy-btn" onclick="copyMasterSpecs(this)">Copy from Master Bed</button>`;
+            }
+            html += `</div>`;
+        });
+
+        roomSpecsContainer.innerHTML = html;
+    }
+
+    window.copyMasterSpecs = function (btn) {
+        const master = document.querySelector('.room-spec-card[data-room="Master Bedroom"]');
+        if (!master) return;
+        const current = btn.closest('.room-spec-card');
+        const masterSelects = master.querySelectorAll('select');
+        const currentSelects = current.querySelectorAll('select');
+        masterSelects.forEach((ms, i) => {
+            if (currentSelects[i]) currentSelects[i].value = ms.value;
+        });
+    };
+
+    // Step 6: Calculation
+    if (detCalcBtn) {
+        detCalcBtn.addEventListener('click', () => {
+            const area = currentDetailedData.area;
+            const cat = currentDetailedData.category;
+            const base = PRICING[cat];
+
+            let totalMin = area * base.min;
+            let totalMax = area * base.max;
+
+            if (currentDetailedData.workType === 'renovation') {
+                totalMin *= RENOVATION_MULTIPLIER;
+                totalMax *= RENOVATION_MULTIPLIER;
+            }
+
+            const resEl = document.getElementById('detailedEstimateResult');
+            resEl.innerHTML = `
+                <div class="estimate-result-summary">
+                    <div class="res-item"><span>Category:</span> <strong>${cat}</strong></div>
+                    <div class="res-item"><span>Area:</span> <strong>${area} sq ft</strong></div>
+                    <div class="res-item"><span>Package Range:</span> <strong>${fmt(base.min)} – ${fmt(base.max)} /sqft</strong></div>
+                    <hr/>
+                    <div class="res-total">
+                        <p>Estimated Total Investment Range:</p>
+                        <h3>${fmt(totalMin)} – ${fmt(totalMax)}</h3>
+                    </div>
+                </div>
+            `;
+            showDetStep(6);
+        });
+    }
+})();
 
 // ══════════════════════════════════════════════════════════
 // CLIENT AUTH (Login / Register)

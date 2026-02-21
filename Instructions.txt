@@ -1,15 +1,16 @@
 Experiors is a high end Home Interiors solution company engaging in design and construction of premium interiors for residential and commercial projects.  We are aone stop solution for design and construction of home interiors.
-We operate in Delhi NCR, Mumbai, Pune, Bangalore, Hyderabad, Vadodara and Ahmedabad.
+We operate in Delhi NCR, Mumbai, Hyderabad, Vadodara and Ahmedabad.
 Create a website for Experiors with the following features:
 1. Home
-2. About
+2. About Us
 3. Our Vision, Mission and Values
 4. How we work 
 5. Our Work (refer this folder D:\WORK\Website\Assets\Project Photos)
-6. Blog
-7. FAQs
-8. Contact and
+6. Design Trends
+8. FAQs
+ and
 Client testimonials
+Links to blog and Contact should be in the footer.
 
 The website will provide the client to generate an estimate for interiors of their house. Estimates will of two types,
 1. Quick Estimate

@@ -355,12 +355,51 @@ section.page-section.active.section-hero {
    HERO
 ══════════════════════════════════════════════════════════ */
 .section-hero {
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Screen 1: Main hero */
+.hero-screen {
     position: relative;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+}
+
+/* Screen 2: Luxury Tiers */
+.hero-tiers-screen {
+    min-height: 100vh;
+    background: var(--charcoal);
+    padding: 5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero Slideshow */
+.hero-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.hero-slide.active {
+    opacity: 1;
 }
 
 .hero-video-wrap {
@@ -3045,4 +3084,399 @@ select option {
     font-size: 0.85rem;
     margin-top: 0.75rem;
     min-height: 1.2em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   ABOUT – TWO SCREEN LAYOUT
+══════════════════════════════════════════════════════════ */
+.about-two-screen {
+    flex-direction: column;
+    padding-top: 0;
+}
+
+.about-screen {
+    min-height: calc(100vh - var(--nav-h));
+    padding: calc(var(--nav-h) + 3rem) 3rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--off-white);
+}
+
+.about-screen .about-grid {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.about-tagline {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--gold);
+    margin-top: 1.5rem;
+    font-weight: 500;
+}
+
+/* Tiers screen inside About */
+.about-tiers-screen {
+    min-height: 100vh;
+    background: var(--charcoal);
+    padding: 4rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.tiers-screen-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.tiers-screen-title {
+    font-size: 2.2rem;
+    color: var(--off-white);
+    font-family: var(--serif);
+    margin-bottom: 0.5rem;
+}
+
+.tiers-screen-sub {
+    color: var(--gold);
+    font-size: 1rem;
+    opacity: 0.85;
+}
+
+/* Hero Tier Cards (used in Hero + About) */
+.hero-tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.hero-tier-card {
+    position: relative;
+    min-height: 480px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    cursor: pointer;
+    transition: transform 0.35s ease;
+}
+
+.hero-tier-card:hover {
+    transform: scale(1.02);
+    z-index: 2;
+}
+
+.featured-tier {
+    z-index: 1;
+    transform: scale(1.03);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.featured-tier:hover {
+    transform: scale(1.05);
+}
+
+.tier-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+}
+
+.tier-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--gold);
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.tier-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+    color: var(--off-white);
+}
+
+.tier-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+}
+
+.tier-name {
+    font-size: 1.6rem;
+    font-family: var(--serif);
+    margin-bottom: 0.3rem;
+}
+
+.tier-tagline {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    margin-bottom: 0.8rem;
+}
+
+.tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    font-size: 0.8rem;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s, max-height 0.4s;
+}
+
+.hero-tier-card:hover .tier-features,
+.featured-tier .tier-features {
+    opacity: 1;
+    max-height: 200px;
+}
+
+.tier-features li {
+    padding: 0.2rem 0;
+    padding-left: 1rem;
+    position: relative;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.tier-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+}
+
+.tier-cta {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.8rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.05em;
+}
+
+.tier-cta:hover {
+    background: var(--gold);
+    color: #000;
+}
+
+/* ══════════════════════════════════════════════════════════
+   HOW WE WORK – HOVER FLOWCHART
+══════════════════════════════════════════════════════════ */
+.flowchart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 760px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.flow-node {
+    background: var(--off-white);
+    border: 1px solid #e0d8cc;
+    border-radius: 10px;
+    padding: 1.25rem 1.75rem;
+    cursor: pointer;
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+    outline: none;
+    position: relative;
+}
+
+.flow-node:hover,
+.flow-node:focus {
+    background: #fff;
+    border-color: var(--gold);
+    box-shadow: 0 4px 20px rgba(242, 164, 68, 0.15);
+}
+
+.flow-node:hover .flow-detail,
+.flow-node:focus .flow-detail {
+    max-height: 300px;
+    opacity: 1;
+    padding-top: 0.8rem;
+}
+
+.flow-step-number {
+    font-family: var(--serif);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.flow-heading {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--charcoal);
+}
+
+.flow-detail {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding-top 0.3s;
+    font-size: 0.92rem;
+    color: #555;
+    line-height: 1.65;
+}
+
+.flow-detail p {
+    margin-bottom: 0.5rem;
+}
+
+.flow-purpose {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 500;
+    font-size: 0.88rem;
+    margin-bottom: 0 !important;
+}
+
+.flow-connector {
+    display: flex;
+    justify-content: center;
+    padding: 0.3rem 0;
+}
+
+.flow-connector span {
+    display: block;
+    width: 2px;
+    height: 24px;
+    background: var(--gold);
+    opacity: 0.4;
+    border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════════════════════
+   DESIGN TRENDS GRID
+══════════════════════════════════════════════════════════ */
+.trends-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.trend-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    cursor: default;
+}
+
+.trend-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    box-shadow: 0 8px 32px rgba(242, 164, 68, 0.12);
+}
+
+.trend-motif {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.85;
+    line-height: 1;
+}
+
+.trend-name {
+    font-family: var(--serif);
+    font-size: 1.4rem;
+    color: var(--off-white);
+    margin-bottom: 0.2rem;
+}
+
+.trend-origin {
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+    font-weight: 500;
+}
+
+.trend-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.65;
+    margin-bottom: 1rem;
+}
+
+.trend-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.trend-keywords span {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.65rem;
+    border: 1px solid rgba(242, 164, 68, 0.35);
+    border-radius: 20px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE – NEW SECTIONS
+══════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+    .hero-tiers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-tier-card {
+        min-height: 320px;
+    }
+
+    .featured-tier {
+        transform: none;
+    }
+
+    .tier-features {
+        opacity: 1;
+        max-height: 200px;
+    }
+
+    .trends-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .trends-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-screen {
+        padding: calc(var(--nav-h) + 2rem) 1.5rem 2rem;
+    }
+
+    .about-tiers-screen {
+        padding: 2.5rem 1.5rem;
+    }
 }

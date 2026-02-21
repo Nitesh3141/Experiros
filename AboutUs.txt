@@ -1,0 +1,67 @@
+These are instructions for various pages of the website.
+
+HOME PAGE
+
+Instead of video, run a slideshow of project images in the background.
+In the Hero Section, main heading should be - "Designing Spaces. Delivering Promises"
+
+Sub head/tag line should be - "Your home is more than walls and furniture — We provide end-to-end interior design and execution solutions with complete transparency, premium quality, and on-time delivery — every time."
+
+Divide the page into two divs. Each div should span one screen. Second div should have luxury tiers. In Luxury tiers section, put images in the background of each tier button.
+
+
+
+ABOUT US PAGE
+
+Move the list of cities we operate in to the bottom of the page.
+
+In the list of cities, change the order of the cities to Tier 1 then Tier 2 and then Tier 3 cities. Remove Bangalore and Pune from the list.
+
+About Us page should be divided into two divs. Each div should span one screen. First div should have about experiors and second div should have luxury tiers.
+
+
+Use the following text verbatim for the about Experiors section.
+
+About Experiors
+
+"Experiors is a premium interior design and construction firm delivering end-to-end solutions for discerning homeowners and commercial clients. We specialize in crafting high-quality residential and commercial interiors — offering a seamless, one-stop solution from concept development to final execution.
+
+At Experiors, we understand that a home is far more than a physical structure — it is a personal statement, a reflection of identity, aspiration, and lifestyle. Our approach combines thoughtful design intelligence with meticulous construction expertise to create spaces that are both aesthetically refined and functionally enduring.
+
+Our team of experienced designers, project managers, and master craftsmen collaborate with precision and discipline at every stage of the project. From detailed planning and transparent budgeting to quality-controlled execution and timely delivery, we ensure that every element aligns with our commitment to excellence.
+
+We do not simply design interiors — we engineer experiences. Every project is treated as a unique narrative, carefully curated and flawlessly executed with clarity, craftsmanship, and accountability.
+
+At Experiors, we don’t just create spaces — we deliver promises."
+
+
+In Luxury tiers section, put images in the background of each tier button.
+
+
+
+
+
+
+
+
+VISION PAGE
+
+Rename this page to vision & Mission
+
+
+BLOG PAGE
+Remove link to Blog from the Navbar. Provide a link to blog in the "NAVIGATE"section at the bottom. 
+
+DESIGN TRENDS PAGE
+
+Add this page to show latest trends anf themese in interior design e.g. Japandi, Biophillic, Scandinavian, Minimalist etc. 
+
+
+
+
+FAQ PAGE
+Read FAQs and answers from FAQ.txt
+
+
+
+

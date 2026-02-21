@@ -14,7 +14,7 @@ Navbar texts will be aligned to the extreme right. On the extreme right, there w
 There will be a thin deep orange line running throughout below the navbar.
 All section header will be in vertical text on vertical band in deep orange colour.
 
-Hero section will have a video playin in the background.
+
 
 FAQ answers will appear one at a time. At one time only the answer of one question will be visible. The answer will be hidden.
 

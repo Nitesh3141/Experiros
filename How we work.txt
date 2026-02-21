@@ -1,9 +1,75 @@
-1. Client visits the website, explore our work and generate a preliminary estimate.
-2. If the client is interested, he/she can register with us using their email and mobile number both OTP verified. The client will be required to pay a refundable deposit of Rs. 1000 as a token of seriousness at the time of registration. This amount will either be adjusted in our fees later or refunded if we are not able to meaningfully engage with the client.
-3. After registration, the client will be asked for more details of the house and will generate an estimate based on the size of the house.
-4. The client will then book a meeting with us, where we understand client's requirements in detail. We call this coffee meeting.
-5. the client enters into an agreement with us.
-6. We start working on design options.
-7. Client approves the design.
-8. We start construction
-9. We deliver a happy home to the client.
+HOW WE WORK PAGE
+
+Show the process as a flowchart. Only headings will be visible. Text will be visible upon hovering over the heading.
+
+1. HEADING: Explore & Preliminary Estimate
+
+TEXT: Begin by exploring our portfolio to understand our design philosophy, execution standards, and completed projects.
+
+Share your basic project details — floor plan, home size, location, and broad requirements — and receive a preliminary budget estimate to understand the expected investment range.
+
+Purpose: Early-stage budget clarity with zero obligation.
+
+2️⃣ HEADING: Register & Token Confirmation
+
+TEXT: To proceed further, register using your OTP-verified email and mobile number.
+
+A fully refundable ₹1,000 token deposit confirms your intent to move forward and enables us to initiate the detailed estimation process based on the inputs you provide.
+
+Purpose: Structured onboarding with mutual seriousness
+
+3️⃣ HEADING: Consultation Meeting
+
+TEXT: Once registered, we schedule a detailed consultation (in-person or virtual) to understand your lifestyle, functional needs, aesthetic preferences, and budget expectations.
+
+This discussion allows us to align your aspirations with practical execution considerations before moving into detailed planning.
+
+Purpose: Understanding your vision before defining the scope.
+
+4️⃣ HEADING: Requirement Finalization
+
+TEXT: Post consultation, we consolidate all inputs and clearly define the project scope.
+
+This includes areas to be designed, material preferences, storage requirements, customization elements, and execution expectations. Every detail is documented to ensure clarity and alignment.
+
+Purpose: Clear scope definition before financial detailing.
+
+5️⃣ HEADING: Detailed Estimate
+
+TEXT: Based on the finalized requirements, we prepare a comprehensive and transparent detailed estimate tailored specifically to your project.
+
+The estimate outlines scope inclusions, material specifications, execution components, and overall investment value — ensuring there are no ambiguities or hidden elements.
+
+Purpose: Complete financial clarity before commitment.
+
+6️⃣ HEADING: Agreement & Project Kick-Off
+
+TEXT: Upon approval of the estimate, we formalize the engagement through a structured agreement outlining scope, timelines, payment milestones, and quality benchmarks.
+
+This stage officially initiates the design and execution journey.
+
+Purpose: Professional commitment with defined accountability.
+
+7️⃣ HEADING: Design Development & Approval
+
+TEXT: Our design team develops detailed layouts, curated material palettes, and 3D visualizations aligned with the approved scope and budget.
+
+You review the concepts, share feedback, and approve the final design before execution begins.
+
+Purpose: Design certainty before construction investment.
+
+8️⃣ HEADING: Execution & Project Management
+
+TEXT: Our skilled craftsmen execute the approved design under disciplined project management and quality supervision.
+
+You receive regular progress updates while we ensure strict adherence to timelines and standards.
+
+Purpose: Controlled execution with complete transparency.
+
+9️⃣ HEADING: Final Handover
+
+TEXT: After thorough inspections and finishing checks, we deliver your completed home aligned with the approved scope, budget, and committed timelines.
+
+Your vision is transformed into a space built to last.
+
+Purpose: Seamless transition from project to possession

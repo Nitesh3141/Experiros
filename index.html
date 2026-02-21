@@ -29,12 +29,11 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
         <li><a href="#about" class="nav-link" data-section="about">About</a></li>
-        <li><a href="#vision" class="nav-link" data-section="vision">Vision</a></li>
+        <li><a href="#vision" class="nav-link" data-section="vision">Vision &amp; Mission</a></li>
         <li><a href="#how-we-work" class="nav-link" data-section="how-we-work">How We Work</a></li>
         <li><a href="#our-work" class="nav-link" data-section="our-work">Our Work</a></li>
-        <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+        <li><a href="#design-trends" class="nav-link" data-section="design-trends">Design Trends</a></li>
         <li><a href="#faq" class="nav-link" data-section="faq">FAQs</a></li>
-        <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
         <li><a href="#estimate" class="nav-link estimate-nav-btn" data-section="estimate">Get Estimate</a></li>
         <li>
           <a href="#" class="nav-login-icon" title="Client Login" aria-label="Client Login">
@@ -148,132 +147,210 @@
   <!-- ═══════════════════════════════════════════════════════════ HERO -->
 
   <section id="home" class="page-section section-hero">
-    <div class="hero-video-wrap">
-      <video autoplay muted loop playsinline id="heroVideo">
-        <source src="Assets/HeroSectionVideo2.MP4" type="video/mp4" />
-      </video>
-      <div class="hero-overlay"></div>
+    <!-- SCREEN 1: Hero -->
+    <div class="hero-screen">
+      <!-- Slideshow background -->
+      <div class="hero-slideshow" id="heroSlideshow">
+        <div class="hero-slide active"
+          style="background-image:url('Assets/Project Photos/Sobha International City/P1332703.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('Assets/Project Photos/Mahendra Aura/P1334876.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('Assets/Project Photos/Emaar Palm Drive/1.JPG')"></div>
+        <div class="hero-slide" style="background-image:url('Assets/Project Photos/M3M Merlin/2.jpg')"></div>
+        <div class="hero-slide"
+          style="background-image:url('Assets/Project Photos/Sobha International City/P1332827.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('Assets/Project Photos/Sare Homes/P1335080.jpg')"></div>
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-tagline-sub">Premium Interior Design &amp; Construction</p>
+        <h1 class="hero-title">Designing Spaces.<br /><span class="hero-title-accent">Delivering Promises.</span></h1>
+        <p class="hero-desc">Your home is more than walls and furniture — We provide end-to-end interior design and
+          execution solutions with complete transparency, premium quality, and on-time delivery — every time.</p>
+        <div class="hero-ctas">
+          <a href="#estimate" class="btn btn-primary">Get an Estimate</a>
+          <button type="button" class="btn btn-outline" id="heroBookMeetingBtn">Book a Meeting</button>
+        </div>
+      </div>
+      <a href="#about" class="hero-scroll-hint" aria-label="Scroll down">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </a>
     </div>
-    <div class="hero-content">
-      <p class="hero-tagline-sub">Where Luxury Meets Precision</p>
-      <h1 class="hero-title">Crafting Spaces That<br /><span class="hero-title-accent">Define You</span></h1>
-      <p class="hero-desc">Premium interior design &amp; construction across Delhi NCR, Mumbai, Pune, Bangalore,
-        Hyderabad, Vadodara &amp; Ahmedabad.</p>
-      <div class="hero-ctas">
-        <a href="#estimate" class="btn btn-primary">Get an Estimate</a>
-        <button type="button" class="btn btn-outline" id="heroBookMeetingBtn">Book a Meeting</button>
+
+    <!-- SCREEN 2: Luxury Tiers -->
+    <div class="hero-tiers-screen">
+      <div class="tiers-screen-header">
+        <h2 class="tiers-screen-title">Our Luxury Tiers</h2>
+        <p class="tiers-screen-sub">Three curated levels of craftsmanship — choose yours</p>
+      </div>
+      <div class="hero-tiers-grid">
+        <div class="hero-tier-card" style="background-image:url('Assets/Project Photos/Sare Homes/P1335090.jpg')">
+          <div class="tier-card-overlay"></div>
+          <div class="tier-card-content">
+            <div class="tier-icon">✦</div>
+            <h3 class="tier-name">Harmony</h3>
+            <p class="tier-tagline">Balanced Elegance for Everyday Luxury</p>
+            <a href="#estimate" class="tier-cta">Explore Harmony</a>
+          </div>
+        </div>
+        <div class="hero-tier-card featured-tier"
+          style="background-image:url('Assets/Project Photos/Mahendra Aura/P1334928.jpg')">
+          <div class="tier-card-overlay"></div>
+          <div class="tier-badge">Most Popular</div>
+          <div class="tier-card-content">
+            <div class="tier-icon">♛</div>
+            <h3 class="tier-name">Majesty</h3>
+            <p class="tier-tagline">Regal Sophistication &amp; Timeless Grandeur</p>
+            <a href="#estimate" class="tier-cta">Explore Majesty</a>
+          </div>
+        </div>
+        <div class="hero-tier-card"
+          style="background-image:url('Assets/Project Photos/Sobha International City/P1332833.JPG')">
+          <div class="tier-card-overlay"></div>
+          <div class="tier-card-content">
+            <div class="tier-icon">◈</div>
+            <h3 class="tier-name">Elysium</h3>
+            <p class="tier-tagline">Ultimate Bespoke Paradise of Exquisite Refinement</p>
+            <a href="#estimate" class="tier-cta">Explore Elysium</a>
+          </div>
+        </div>
       </div>
     </div>
-    <a href="#about" class="hero-scroll-hint" aria-label="Scroll down">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <polyline points="6 9 12 15 18 9" />
-      </svg>
-    </a>
   </section>
+
 
   <!-- ═══════════════════════════════════════════════════════════ ABOUT -->
   <section id="about" class="page-section section-standard">
     <div class="section-header-band">
       <span class="section-header-text">About</span>
     </div>
-    <div class="section-body">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2 class="section-title" id="about-title">About Experiors</h2>
-          <p class="about-lead" id="about-lead">We are a high-end home interiors solution company engaging in design and
-            construction of premium interiors for residential and commercial projects — your one-stop solution from
-            concept to completion.</p>
-          <p class="about-body" id="about-body">At Experiors, we believe your home is more than a space — it's an
-            expression of who you are. Our team of seasoned designers and master craftsmen work in perfect harmony to
-            deliver interiors that are not just beautiful, but built to last. Every project is a story, and we are
-            dedicated to telling yours with unmatched precision and care.</p>
-          <div class="about-cities">
-            <h3 class="about-cities-title">We Operate In</h3>
-            <div class="cities-grid">
-              <span class="city-chip">Delhi NCR</span>
-              <span class="city-chip">Mumbai</span>
-              <span class="city-chip">Pune</span>
-              <span class="city-chip">Bangalore</span>
-              <span class="city-chip">Hyderabad</span>
-              <span class="city-chip">Vadodara</span>
-              <span class="city-chip">Ahmedabad</span>
+    <div class="section-body about-two-screen">
+
+      <!-- SCREEN 1: About Text -->
+      <div class="about-screen">
+        <div class="about-grid">
+          <div class="about-text">
+            <h2 class="section-title" id="about-title">About Experiors</h2>
+            <p class="about-lead" id="about-lead">Experiors is a premium interior design and construction firm
+              delivering end-to-end solutions for discerning homeowners and commercial clients. We specialize in
+              crafting high-quality residential and commercial interiors — offering a seamless, one-stop solution from
+              concept development to final execution.</p>
+            <p class="about-body" id="about-body">At Experiors, we understand that a home is far more than a physical
+              structure — it is a personal statement, a reflection of identity, aspiration, and lifestyle. Our approach
+              combines thoughtful design intelligence with meticulous construction expertise to create spaces that are
+              both aesthetically refined and functionally enduring.</p>
+            <p class="about-body">Our team of experienced designers, project managers, and master craftsmen collaborate
+              with precision and discipline at every stage of the project. From detailed planning and transparent
+              budgeting to quality-controlled execution and timely delivery, we ensure that every element aligns with
+              our commitment to excellence.</p>
+            <p class="about-body">We do not simply design interiors — we engineer experiences. Every project is treated
+              as a unique narrative, carefully curated and flawlessly executed with clarity, craftsmanship, and
+              accountability.</p>
+            <p class="about-tagline">At Experiors, we don't just create spaces — we deliver promises.</p>
+          </div>
+          <div class="about-stats">
+            <div class="stat-card">
+              <span class="stat-number">500+</span>
+              <span class="stat-label">Projects Delivered</span>
             </div>
-          </div>
-        </div>
-        <div class="about-stats">
-          <div class="stat-card">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Projects Delivered</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">7</span>
-            <span class="stat-label">Cities</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">98%</span>
-            <span class="stat-label">Client Satisfaction</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">3</span>
-            <span class="stat-label">Luxury Tiers</span>
+            <div class="stat-card">
+              <span class="stat-number">5</span>
+              <span class="stat-label">Cities</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">98%</span>
+              <span class="stat-label">Client Satisfaction</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Luxury Tiers</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Categories -->
-      <div class="categories-section">
-        <h2 class="categories-title">Our Luxury Tiers</h2>
-        <div class="categories-grid">
-          <div class="category-card" id="cat-harmony">
-            <div class="category-icon">✦</div>
-            <h3 class="category-name">Harmony</h3>
-            <p class="category-tagline">Balanced Elegance for Everyday Luxury</p>
-            <p class="category-desc">The sweet spot where timeless comfort meets refined style. Cohesive, serene
-              environments with smart storage, branded hardware, and warm palettes — ideal for families and
-              professionals.</p>
-            <ul class="category-features">
-              <li>Premium branded laminates &amp; engineered wood</li>
-              <li>Modular kitchens with quartz countertops</li>
-              <li>LED lighting &amp; good-quality sanitaryware</li>
-              <li>Smart storage solutions</li>
-            </ul>
+      <!-- SCREEN 2: Luxury Tiers with image backgrounds -->
+      <div class="about-tiers-screen">
+        <div class="tiers-screen-header">
+          <h2 class="tiers-screen-title">Our Luxury Tiers</h2>
+          <p class="tiers-screen-sub">Choose your level of craftsmanship</p>
+        </div>
+        <div class="hero-tiers-grid">
+          <div class="hero-tier-card" id="cat-harmony"
+            style="background-image:url('Assets/Project Photos/Sare Homes/P1335130.jpg')">
+            <div class="tier-card-overlay"></div>
+            <div class="tier-card-content">
+              <div class="tier-icon">✦</div>
+              <h3 class="tier-name">Harmony</h3>
+              <p class="tier-tagline">Balanced Elegance for Everyday Luxury</p>
+              <ul class="tier-features">
+                <li>Premium branded laminates &amp; engineered wood</li>
+                <li>Modular kitchens with quartz countertops</li>
+                <li>LED lighting &amp; quality sanitaryware</li>
+                <li>Smart storage solutions</li>
+              </ul>
+              <a href="#estimate" class="tier-cta">Explore Harmony</a>
+            </div>
           </div>
-          <div class="category-card featured" id="cat-majesty">
-            <div class="category-badge">Most Popular</div>
-            <div class="category-icon">♛</div>
-            <h3 class="category-name">Majesty</h3>
-            <p class="category-tagline">Regal Sophistication &amp; Timeless Grandeur</p>
-            <p class="category-desc">Royal poise and commanding presence. Italian marble, solid teak veneers, coffered
-              ceilings, and smart home integration — for discerning homeowners who appreciate grandeur.</p>
-            <ul class="category-features">
-              <li>Italian marble or granite flooring</li>
-              <li>Custom joinery &amp; statement chandeliers</li>
-              <li>Imported sanitaryware (Grohe, Toto)</li>
-              <li>Smart home integration</li>
-            </ul>
+          <div class="hero-tier-card featured-tier" id="cat-majesty"
+            style="background-image:url('Assets/Project Photos/Mahendra Aura/P1334960.jpg')">
+            <div class="tier-card-overlay"></div>
+            <div class="tier-badge">Most Popular</div>
+            <div class="tier-card-content">
+              <div class="tier-icon">♛</div>
+              <h3 class="tier-name">Majesty</h3>
+              <p class="tier-tagline">Regal Sophistication &amp; Timeless Grandeur</p>
+              <ul class="tier-features">
+                <li>Italian marble or granite flooring</li>
+                <li>Custom joinery &amp; statement chandeliers</li>
+                <li>Imported sanitaryware (Grohe, Toto)</li>
+                <li>Smart home integration</li>
+              </ul>
+              <a href="#estimate" class="tier-cta">Explore Majesty</a>
+            </div>
           </div>
-          <div class="category-card" id="cat-elysium">
-            <div class="category-icon">◈</div>
-            <h3 class="category-name">Elysium</h3>
-            <p class="category-tagline">Ultimate Bespoke Paradise of Exquisite Refinement</p>
-            <p class="category-desc">The pinnacle of interior mastery. Rare materials, masterful artistry, and seamless
-              technology — a private haven of unparalleled beauty reserved for those who demand perfection.</p>
-            <ul class="category-features">
-              <li>Calacatta marble &amp; exotic solid woods</li>
-              <li>Full smart home automation</li>
-              <li>Artisanal collaborations &amp; custom art</li>
-              <li>Wellness &amp; high-security features</li>
-            </ul>
+          <div class="hero-tier-card" id="cat-elysium"
+            style="background-image:url('Assets/Project Photos/Sobha International City/P1332841.jpg')">
+            <div class="tier-card-overlay"></div>
+            <div class="tier-card-content">
+              <div class="tier-icon">◈</div>
+              <h3 class="tier-name">Elysium</h3>
+              <p class="tier-tagline">Ultimate Bespoke Paradise of Exquisite Refinement</p>
+              <ul class="tier-features">
+                <li>Calacatta marble &amp; exotic solid woods</li>
+                <li>Full smart home automation</li>
+                <li>Artisanal collaborations &amp; custom art</li>
+                <li>Wellness &amp; high-security features</li>
+              </ul>
+              <a href="#estimate" class="tier-cta">Explore Elysium</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cities at the bottom -->
+        <div class="about-cities">
+          <h3 class="about-cities-title">We Operate In</h3>
+          <div class="cities-grid">
+            <span class="city-chip">Delhi NCR</span>
+            <span class="city-chip">Mumbai</span>
+            <span class="city-chip">Hyderabad</span>
+            <span class="city-chip">Vadodara</span>
+            <span class="city-chip">Ahmedabad</span>
           </div>
         </div>
       </div>
+
     </div>
   </section>
+
+
+
 
   <!-- ═══════════════════════════════════════════════════════════ VISION -->
   <section id="vision" class="page-section section-standard section-dark">
     <div class="section-header-band band-light">
-      <span class="section-header-text">Vision</span>
+      <span class="section-header-text">Vision &amp; Mission</span>
     </div>
     <div class="section-body">
       <div class="vmv-grid">
@@ -332,114 +409,114 @@
     </div>
     <div class="section-body">
       <h2 class="section-title">How We Work</h2>
-      <p class="section-subtitle">A transparent, collaborative journey from first visit to happy home.</p>
-      <div class="swimlane-container">
-        <div class="swimlane-flow">
-          <!-- Step 1: Client -->
-          <div class="flow-step client-step">
-            <div class="step-connector step-connector-start"></div>
-            <div class="step-node">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h4>Explore &amp; Estimate</h4>
-                <p>Visit our website, explore our portfolio, and generate a preliminary estimate.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-down"></div>
-          </div>
-          <!-- Step 2: Client -->
-          <div class="flow-step client-step">
-            <div class="step-node">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h4>Register &amp; Deposit</h4>
-                <p>Register with OTP-verified email &amp; mobile. Pay a refundable ₹1,000 token deposit to confirm
-                  seriousness.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-cross"></div>
-          </div>
-          <!-- Step 3: Experiors -->
-          <div class="flow-step experiors-step">
-            <div class="step-node">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h4>Detailed Estimate</h4>
-                <p>We generate a detailed, room-by-room estimate based on your specifications and floor plan.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-cross"></div>
-          </div>
-          <!-- Step 4: Client + Experiors -->
-          <div class="flow-step shared-step">
-            <div class="step-node">
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <h4>Coffee Meeting ☕</h4>
-                <p>Book a meeting slot. We sit together to understand your vision, lifestyle, and requirements in
-                  detail.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-down"></div>
-          </div>
-          <!-- Step 5: Client -->
-          <div class="flow-step client-step">
-            <div class="step-node">
-              <div class="step-number">5</div>
-              <div class="step-content">
-                <h4>Agreement</h4>
-                <p>You enter into a formal agreement with us — clear scope, timeline, and payment milestones.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-cross"></div>
-          </div>
-          <!-- Step 6: Experiors -->
-          <div class="flow-step experiors-step">
-            <div class="step-node">
-              <div class="step-number">6</div>
-              <div class="step-content">
-                <h4>Design Options</h4>
-                <p>Our designers craft multiple design concepts tailored to your taste and budget.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-cross"></div>
-          </div>
-          <!-- Step 7: Client -->
-          <div class="flow-step client-step">
-            <div class="step-node">
-              <div class="step-number">7</div>
-              <div class="step-content">
-                <h4>Design Approval</h4>
-                <p>You review, provide feedback, and approve the final design. Revisions included.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-cross"></div>
-          </div>
-          <!-- Step 8: Experiors -->
-          <div class="flow-step experiors-step">
-            <div class="step-node">
-              <div class="step-number">8</div>
-              <div class="step-content">
-                <h4>Construction</h4>
-                <p>Our skilled craftsmen execute the design with precision. Daily updates keep you in the loop.</p>
-              </div>
-            </div>
-            <div class="step-arrow arrow-down"></div>
-          </div>
-          <!-- Step 9: Shared -->
-          <div class="flow-step shared-step final-step">
-            <div class="step-node">
-              <div class="step-number">9</div>
-              <div class="step-content">
-                <h4>Happy Home 🏠</h4>
-                <p>We deliver your dream home — on time, on budget, and beyond expectations.</p>
-              </div>
-            </div>
+      <p class="section-subtitle">Hover on any step to learn more.</p>
+      <div class="flowchart-container">
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">01</div>
+          <div class="flow-heading">Explore &amp; Preliminary Estimate</div>
+          <div class="flow-detail">
+            <p>Begin by exploring our portfolio to understand our design philosophy, execution standards, and completed
+              projects.</p>
+            <p>Share your basic project details — floor plan, home size, location, and broad requirements — and receive
+              a preliminary budget estimate.</p>
+            <p class="flow-purpose">Purpose: Early-stage budget clarity with zero obligation.</p>
           </div>
         </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">02</div>
+          <div class="flow-heading">Register &amp; Token Confirmation</div>
+          <div class="flow-detail">
+            <p>Register using your OTP-verified email and mobile number. A fully refundable ₹1,000 token deposit
+              confirms your intent to move forward.</p>
+            <p class="flow-purpose">Purpose: Structured onboarding with mutual seriousness.</p>
+          </div>
+        </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">03</div>
+          <div class="flow-heading">Consultation Meeting</div>
+          <div class="flow-detail">
+            <p>We schedule a detailed consultation (in-person or virtual) to understand your lifestyle, functional
+              needs, aesthetic preferences, and budget expectations.</p>
+            <p class="flow-purpose">Purpose: Understanding your vision before defining the scope.</p>
+          </div>
+        </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">04</div>
+          <div class="flow-heading">Requirement Finalization</div>
+          <div class="flow-detail">
+            <p>We consolidate all inputs and clearly define the project scope — areas to be designed, material
+              preferences, storage requirements, and execution expectations.</p>
+            <p class="flow-purpose">Purpose: Clear scope definition before financial detailing.</p>
+          </div>
+        </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">05</div>
+          <div class="flow-heading">Detailed Estimate</div>
+          <div class="flow-detail">
+            <p>Based on finalized requirements, we prepare a comprehensive and transparent detailed estimate — scope
+              inclusions, material specifications, execution components, and overall investment value.</p>
+            <p class="flow-purpose">Purpose: Complete financial clarity before commitment.</p>
+          </div>
+        </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">06</div>
+          <div class="flow-heading">Agreement &amp; Project Kick-Off</div>
+          <div class="flow-detail">
+            <p>Upon approval of the estimate, we formalize the engagement through a structured agreement outlining
+              scope, timelines, payment milestones, and quality benchmarks.</p>
+            <p class="flow-purpose">Purpose: Professional commitment with defined accountability.</p>
+          </div>
+        </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">07</div>
+          <div class="flow-heading">Design Development &amp; Approval</div>
+          <div class="flow-detail">
+            <p>Our design team develops detailed layouts, curated material palettes, and 3D visualizations. You review,
+              provide feedback, and approve the final design before execution begins.</p>
+            <p class="flow-purpose">Purpose: Design certainty before construction investment.</p>
+          </div>
+        </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">08</div>
+          <div class="flow-heading">Execution &amp; Project Management</div>
+          <div class="flow-detail">
+            <p>Our skilled craftsmen execute the approved design under disciplined project management. Regular progress
+              updates while we ensure strict adherence to timelines and standards.</p>
+            <p class="flow-purpose">Purpose: Controlled execution with complete transparency.</p>
+          </div>
+        </div>
+        <div class="flow-connector"><span></span></div>
+
+        <div class="flow-node" tabindex="0">
+          <div class="flow-step-number">09</div>
+          <div class="flow-heading">Final Handover</div>
+          <div class="flow-detail">
+            <p>After thorough inspections and finishing checks, we deliver your completed home aligned with the approved
+              scope, budget, and committed timelines.</p>
+            <p>Your vision is transformed into a space built to last.</p>
+            <p class="flow-purpose">Purpose: Seamless transition from project to possession.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
 
   <!-- ═══════════════════════════════════════════════════════════ OUR WORK -->
   <section id="our-work" class="page-section section-standard section-dark">
@@ -604,8 +681,95 @@
   </div>
   <div id="lightboxBackdrop" class="lightbox-backdrop"></div>
 
+  <!-- ═══════════════════════════════════════════════════════════ DESIGN TRENDS -->
+  <section id="design-trends" class="page-section section-standard section-dark">
+    <div class="section-header-band band-light">
+      <span class="section-header-text">Trends</span>
+    </div>
+    <div class="section-body">
+      <h2 class="section-title">Design Trends</h2>
+      <p class="section-subtitle">The latest movements shaping premium interior spaces around the world.</p>
+      <div class="trends-grid">
+
+        <div class="trend-card">
+          <div class="trend-motif">侘寂</div>
+          <h3 class="trend-name">Japandi</h3>
+          <p class="trend-origin">Japan × Scandinavia</p>
+          <p class="trend-desc">A harmonious fusion of Japanese wabi-sabi philosophy and Scandinavian functionalism.
+            Clean lines, natural materials — wood, stone, linen — muted palettes, and the quiet beauty of imperfection.
+            Every element earns its place.</p>
+          <div class="trend-keywords">
+            <span>Natural Wood</span><span>Neutral Tones</span><span>Minimalism</span><span>Wabi-Sabi</span>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-motif">🌿</div>
+          <h3 class="trend-name">Biophilic Design</h3>
+          <p class="trend-origin">Nature-Integrated Living</p>
+          <p class="trend-desc">Bringing the outside in. Living green walls, cascading indoor plants, raw stone
+            finishes, natural light optimization, and organic forms that create a deep, restorative connection with
+            nature in urban spaces.</p>
+          <div class="trend-keywords">
+            <span>Living Walls</span><span>Natural Light</span><span>Raw Stone</span><span>Organic Forms</span>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-motif">◻</div>
+          <h3 class="trend-name">Minimalist</h3>
+          <p class="trend-origin">Less Is More</p>
+          <p class="trend-desc">Radical simplicity as a statement. Hidden storage, seamless surfaces, monochromatic
+            palettes, and precisely chosen focal pieces. Nothing superfluous — every detail intentional, every space
+            breathing.</p>
+          <div class="trend-keywords">
+            <span>Hidden Storage</span><span>Monochrome</span><span>Open Space</span><span>Intentional</span>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-motif">☽</div>
+          <h3 class="trend-name">Wabi-Sabi</h3>
+          <p class="trend-origin">The Beauty of Imperfection</p>
+          <p class="trend-desc">Celebrating the natural cycle of growth and decay. Handcrafted textures, weathered
+            surfaces, asymmetrical forms, earthy tones. A philosophy that finds profound beauty in transience and
+            imperfect authenticity.</p>
+          <div class="trend-keywords">
+            <span>Handcrafted</span><span>Earthy Tones</span><span>Texture</span><span>Authenticity</span>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-motif">❋</div>
+          <h3 class="trend-name">Scandinavian</h3>
+          <p class="trend-origin">Nordic Warmth &amp; Function</p>
+          <p class="trend-desc">Bright, airy interiors that maximize natural light. Pale woods, cosy textiles,
+            functional furniture without excess ornamentation. A balance of beauty and practicality uniquely suited to
+            family living.</p>
+          <div class="trend-keywords">
+            <span>Pale Wood</span><span>Cosy Textiles</span><span>Functional</span><span>Airy Spaces</span>
+          </div>
+        </div>
+
+        <div class="trend-card">
+          <div class="trend-motif">◆</div>
+          <h3 class="trend-name">Art Deco Revival</h3>
+          <p class="trend-origin">Glamour &amp; Geometry</p>
+          <p class="trend-desc">Bold geometry, opulent materials, and dramatic contrasts — marble floors, brass accents,
+            velvet upholstery, and symmetrical grandeur. A contemporary revival of 1920s luxury that commands attention.
+          </p>
+          <div class="trend-keywords">
+            <span>Bold Geometry</span><span>Brass Accents</span><span>Velvet</span><span>Marble</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════════════════════════════════════════════════════════ BLOG -->
   <section id="blog" class="page-section section-standard">
+
     <div class="section-header-band">
       <span class="section-header-text">Blog</span>
     </div>
@@ -769,8 +933,6 @@
                   <option value="">Select city...</option>
                   <option>Delhi NCR</option>
                   <option>Mumbai</option>
-                  <option>Pune</option>
-                  <option>Bangalore</option>
                   <option>Hyderabad</option>
                   <option>Vadodara</option>
                   <option>Ahmedabad</option>
@@ -851,8 +1013,6 @@
                     <option value="">Select city...</option>
                     <option>Delhi NCR</option>
                     <option>Mumbai</option>
-                    <option>Pune</option>
-                    <option>Bangalore</option>
                     <option>Hyderabad</option>
                     <option>Vadodara</option>
                     <option>Ahmedabad</option>
@@ -964,6 +1124,25 @@
                   <label class="check-label"><input type="checkbox" id="hd-study" /> Study Room</label>
                 </div>
               </div>
+              <div id="renovationItemsWrap" style="display:none;">
+                <div class="form-group form-group-checks">
+                  <label>Renovation Items Required *</label>
+                  <div class="reno-checks-grid">
+                    <label class="check-label"><input type="checkbox" name="reno-item" value="Flooring" />
+                      Flooring</label>
+                    <label class="check-label"><input type="checkbox" name="reno-item" value="Painting" />
+                      Painting</label>
+                    <label class="check-label"><input type="checkbox" name="reno-item" value="Electrical" />
+                      Electrical</label>
+                    <label class="check-label"><input type="checkbox" name="reno-item" value="Plumbing" />
+                      Plumbing</label>
+                    <label class="check-label"><input type="checkbox" name="reno-item" value="Civil Work" /> Civil
+                      Work</label>
+                    <label class="check-label"><input type="checkbox" name="reno-item" value="False Ceiling" /> False
+                      Ceiling</label>
+                  </div>
+                </div>
+              </div>
               <div class="form-group">
                 <label for="hd-category">Interior Category *</label>
                 <div class="category-radio-group">
@@ -1045,8 +1224,6 @@
                   <option value="">Select city...</option>
                   <option>Delhi NCR</option>
                   <option>Mumbai</option>
-                  <option>Pune</option>
-                  <option>Bangalore</option>
                   <option>Hyderabad</option>
                   <option>Vadodara</option>
                   <option>Ahmedabad</option>
@@ -1128,6 +1305,9 @@
             <li><a href="#vision">Vision &amp; Mission</a></li>
             <li><a href="#how-we-work">How We Work</a></li>
             <li><a href="#our-work">Our Work</a></li>
+            <li><a href="#design-trends">Design Trends</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1209,8 +1389,6 @@
                 <option value="">Select city...</option>
                 <option>Delhi NCR</option>
                 <option>Mumbai</option>
-                <option>Pune</option>
-                <option>Bangalore</option>
                 <option>Hyderabad</option>
                 <option>Vadodara</option>
                 <option>Ahmedabad</option>
