@@ -147,7 +147,7 @@
 
   <!-- ═══════════════════════════════════════════════════════════ HERO -->
 
-  <section id="home" class="section-hero">
+  <section id="home" class="page-section section-hero">
     <div class="hero-video-wrap">
       <video autoplay muted loop playsinline id="heroVideo">
         <source src="Assets/HeroSectionVideo2.MP4" type="video/mp4" />
@@ -161,7 +161,7 @@
         Hyderabad, Vadodara &amp; Ahmedabad.</p>
       <div class="hero-ctas">
         <a href="#estimate" class="btn btn-primary">Get an Estimate</a>
-        <a href="#contact" class="btn btn-outline">Book a Meeting</a>
+        <button type="button" class="btn btn-outline" id="heroBookMeetingBtn">Book a Meeting</button>
       </div>
     </div>
     <a href="#about" class="hero-scroll-hint" aria-label="Scroll down">
@@ -172,7 +172,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ ABOUT -->
-  <section id="about" class="section-standard">
+  <section id="about" class="page-section section-standard">
     <div class="section-header-band">
       <span class="section-header-text">About</span>
     </div>
@@ -271,7 +271,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ VISION -->
-  <section id="vision" class="section-standard section-dark">
+  <section id="vision" class="page-section section-standard section-dark">
     <div class="section-header-band band-light">
       <span class="section-header-text">Vision</span>
     </div>
@@ -326,7 +326,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ HOW WE WORK -->
-  <section id="how-we-work" class="section-standard">
+  <section id="how-we-work" class="page-section section-standard">
     <div class="section-header-band">
       <span class="section-header-text">Process</span>
     </div>
@@ -442,7 +442,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ OUR WORK -->
-  <section id="our-work" class="section-standard section-dark">
+  <section id="our-work" class="page-section section-standard section-dark">
     <div class="section-header-band band-light">
       <span class="section-header-text">Portfolio</span>
     </div>
@@ -605,7 +605,7 @@
   <div id="lightboxBackdrop" class="lightbox-backdrop"></div>
 
   <!-- ═══════════════════════════════════════════════════════════ BLOG -->
-  <section id="blog" class="section-standard">
+  <section id="blog" class="page-section section-standard">
     <div class="section-header-band">
       <span class="section-header-text">Blog</span>
     </div>
@@ -654,7 +654,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ TESTIMONIALS -->
-  <section id="testimonials" class="section-standard section-dark">
+  <section id="testimonials" class="page-section section-standard section-dark">
     <div class="section-header-band band-light">
       <span class="section-header-text">Reviews</span>
     </div>
@@ -716,7 +716,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ FAQ -->
-  <section id="faq" class="section-standard">
+  <section id="faq" class="page-section section-standard">
     <div class="section-header-band">
       <span class="section-header-text">FAQ</span>
     </div>
@@ -730,7 +730,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ ESTIMATE -->
-  <section id="estimate" class="section-standard section-dark">
+  <section id="estimate" class="page-section section-standard section-dark">
     <div class="section-header-band band-light">
       <span class="section-header-text">Estimate</span>
     </div>
@@ -1014,7 +1014,7 @@
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════ CONTACT -->
-  <section id="contact" class="section-standard">
+  <section id="contact" class="page-section section-standard">
     <div class="section-header-band">
       <span class="section-header-text">Contact</span>
     </div>
@@ -1157,6 +1157,109 @@
             href="admin.html" style="color:inherit;text-decoration:none;" title="">&#9679;</a></span></p>
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════════════ BOOKING GATE MODAL -->
+  <div id="bookingGateModal" class="bgate-backdrop" style="display:none;" role="dialog" aria-modal="true"
+    aria-labelledby="bgateTitle">
+    <div class="bgate-modal">
+      <button class="bgate-close" id="bgateClose" aria-label="Close">&#x2715;</button>
+
+      <!-- Step indicators -->
+      <div class="bgate-steps">
+        <div class="bgate-step active" id="bgateStep1Ind"><span>1</span><small>Register</small></div>
+        <div class="bgate-step-line"></div>
+        <div class="bgate-step" id="bgateStep2Ind"><span>2</span><small>Verify OTP</small></div>
+        <div class="bgate-step-line"></div>
+        <div class="bgate-step" id="bgateStep3Ind"><span>3</span><small>Pay ₹1,000</small></div>
+      </div>
+
+      <!-- Step 1: Registration -->
+      <div id="bgatePanel1" class="bgate-panel">
+        <h2 class="bgate-title" id="bgateTitle">Register to Book a Meeting</h2>
+        <p class="bgate-note">A refundable ₹1,000 token deposit confirms your seriousness and unlocks your meeting slot.
+        </p>
+        <div class="deposit-info-box" style="margin-bottom:1.2rem;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <p>The ₹1,000 deposit is fully refundable — adjusted in our fees or returned if we cannot meaningfully engage.
+          </p>
+        </div>
+        <form id="bgateRegForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bg-name">Full Name *</label>
+              <input type="text" id="bg-name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="bg-email">Email Address *</label>
+              <input type="email" id="bg-email" placeholder="you@email.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bg-mobile">Mobile Number *</label>
+              <input type="tel" id="bg-mobile" placeholder="+91 98765 43210" required />
+            </div>
+            <div class="form-group">
+              <label for="bg-city">City *</label>
+              <select id="bg-city" required>
+                <option value="">Select city...</option>
+                <option>Delhi NCR</option>
+                <option>Mumbai</option>
+                <option>Pune</option>
+                <option>Bangalore</option>
+                <option>Hyderabad</option>
+                <option>Vadodara</option>
+                <option>Ahmedabad</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send OTP &amp; Proceed</button>
+        </form>
+        <p class="bgate-error" id="bgateError1"></p>
+      </div>
+
+      <!-- Step 2: OTP Verification -->
+      <div id="bgatePanel2" class="bgate-panel" style="display:none;">
+        <h2 class="bgate-title">Verify Your Details</h2>
+        <p class="bgate-note">Enter the OTPs sent to your email and mobile.</p>
+        <div class="otp-demo-notice" id="bgateOtpDemo">
+          <strong>Demo Mode:</strong> Email OTP: <span id="bgDemoEmail" class="otp-code"></span> &nbsp;|&nbsp; Mobile
+          OTP: <span id="bgDemoMobile" class="otp-code"></span>
+        </div>
+        <form id="bgateOtpForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bg-otp-email">Email OTP *</label>
+              <input type="text" id="bg-otp-email" maxlength="6" placeholder="6-digit OTP" required />
+            </div>
+            <div class="form-group">
+              <label for="bg-otp-mobile">Mobile OTP *</label>
+              <input type="text" id="bg-otp-mobile" maxlength="6" placeholder="6-digit OTP" required />
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Verify &amp; Proceed to Payment</button>
+        </form>
+        <p class="bgate-error" id="bgateError2"></p>
+      </div>
+
+      <!-- Step 3: Payment -->
+      <div id="bgatePanel3" class="bgate-panel" style="display:none;">
+        <h2 class="bgate-title">Refundable Deposit</h2>
+        <p class="bgate-note">Pay ₹1,000 to confirm your meeting booking. This amount is fully refundable.</p>
+        <div class="payment-placeholder">
+          <div class="payment-amount">₹1,000</div>
+          <p>Refundable Token Deposit</p>
+          <button class="btn btn-primary btn-full" id="bgatePayBtn">Pay Now (Demo)</button>
+          <p class="payment-note">* In production, this will open Razorpay/payment gateway.</p>
+        </div>
+        <p class="bgate-error" id="bgateError3"></p>
+      </div>
+    </div>
+  </div>
 
   <script src="main.js"></script>
 </body>

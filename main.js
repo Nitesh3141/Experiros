@@ -105,31 +105,55 @@ function getAdminData(key, def) {
 }
 
 // ══════════════════════════════════════════════════════════
-// NAVBAR
+// PAGE ROUTER (hash-based SPA)
+// ══════════════════════════════════════════════════════════
+(function initRouter() {
+    const pages = document.querySelectorAll('.page-section');
+    const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+    function showPage(hash) {
+        // Strip leading '#', default to 'home'
+        const id = (hash || '').replace(/^#/, '') || 'home';
+        let matched = false;
+        pages.forEach(page => {
+            if (page.id === id) {
+                page.classList.add('active');
+                matched = true;
+            } else {
+                page.classList.remove('active');
+            }
+        });
+        // If hash didn't match any section, show home
+        if (!matched) {
+            const home = document.getElementById('home');
+            if (home) home.classList.add('active');
+        }
+        // Update active nav link
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.dataset.section === id);
+        });
+        // Scroll to top of viewport
+        window.scrollTo(0, 0);
+    }
+
+    // Navigate on hash change (covers nav links, footer links, back/forward)
+    window.addEventListener('hashchange', () => showPage(location.hash));
+
+    // Initial load
+    showPage(location.hash);
+})();
+
+// ══════════════════════════════════════════════════════════
+// NAVBAR (hamburger menu only)
 // ══════════════════════════════════════════════════════════
 (function initNavbar() {
     const hamburger = document.getElementById('navHamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
-
-    // Close on link click
-    navLinks.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => navLinks.classList.remove('open'));
+    const navLinksEl = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinksEl.classList.toggle('open'));
+    // Close mobile menu on link click
+    navLinksEl.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => navLinksEl.classList.remove('open'));
     });
-
-    // Active section tracking
-    const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('.nav-link[data-section]');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                links.forEach(l => l.classList.remove('active'));
-                const active = document.querySelector(`.nav-link[data-section="${e.target.id}"]`);
-                if (active) active.classList.add('active');
-            }
-        });
-    }, { threshold: 0.35 });
-    sections.forEach(s => observer.observe(s));
 })();
 
 // ══════════════════════════════════════════════════════════
@@ -336,13 +360,14 @@ function getAdminData(key, def) {
                 });
             }
         }
-        // Switch to Detailed Estimate tab
-        document.getElementById('tabDetailed').click();
-        document.getElementById('estimate').scrollIntoView({ behavior: 'smooth' });
+        // Navigate to Estimate page and switch to Detailed tab
+        location.hash = '#estimate';
+        setTimeout(() => document.getElementById('tabDetailed').click(), 50);
     });
     document.getElementById('getDetailedLink')?.addEventListener('click', e => {
         e.preventDefault();
-        document.getElementById('tabDetailed').click();
+        location.hash = '#estimate';
+        setTimeout(() => document.getElementById('tabDetailed').click(), 50);
     });
 })();
 
@@ -670,7 +695,7 @@ document.querySelectorAll('.estimate-tab').forEach(tab => {
     });
 
     document.getElementById('detBookMeetingBtn').addEventListener('click', () => {
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        location.hash = '#contact';
     });
 
     document.getElementById('detDownloadBtn').addEventListener('click', () => {
@@ -1023,7 +1048,7 @@ function saveEstimateForClient(mobile, estimate) {
     // ── View 5: Actions ───────────────────────────────────────
     document.getElementById('authGoEstimateBtn').addEventListener('click', () => {
         closeModal();
-        document.getElementById('estimate').scrollIntoView({ behavior: 'smooth' });
+        location.hash = '#estimate';
     });
 
     document.getElementById('authExploreBtn').addEventListener('click', () => {
@@ -1031,4 +1056,99 @@ function saveEstimateForClient(mobile, estimate) {
     });
 
 })();
+
+// ══════════════════════════════════════════════════════════
+// BOOKING GATE MODAL (hero "Book a Meeting" button)
+// ══════════════════════════════════════════════════════════
+(function initBookingGate() {
+    const modal = document.getElementById('bookingGateModal');
+    if (!modal) return;
+
+    const closeBtn = document.getElementById('bgateClose');
+    const panel1 = document.getElementById('bgatePanel1');
+    const panel2 = document.getElementById('bgatePanel2');
+    const panel3 = document.getElementById('bgatePanel3');
+    const step1Ind = document.getElementById('bgateStep1Ind');
+    const step2Ind = document.getElementById('bgateStep2Ind');
+    const step3Ind = document.getElementById('bgateStep3Ind');
+    const regForm = document.getElementById('bgateRegForm');
+    const otpForm = document.getElementById('bgateOtpForm');
+    const payBtn = document.getElementById('bgatePayBtn');
+    const err1 = document.getElementById('bgateError1');
+    const err2 = document.getElementById('bgateError2');
+
+    let emailOtp = '', mobileOtp = '';
+
+    function openModal() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        showPanel(1);
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function showPanel(n) {
+        panel1.style.display = n === 1 ? 'block' : 'none';
+        panel2.style.display = n === 2 ? 'block' : 'none';
+        panel3.style.display = n === 3 ? 'block' : 'none';
+        [step1Ind, step2Ind, step3Ind].forEach((el, i) => {
+            el.classList.remove('active', 'done');
+            if (i + 1 < n) el.classList.add('done');
+            if (i + 1 === n) el.classList.add('active');
+        });
+    }
+
+    // Open via hero button
+    const heroBtn = document.getElementById('heroBookMeetingBtn');
+    if (heroBtn) heroBtn.addEventListener('click', openModal);
+
+    // Close button & backdrop click
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modal.style.display !== 'none') closeModal();
+    });
+
+    // Step 1 → 2: Registration
+    regForm.addEventListener('submit', e => {
+        e.preventDefault();
+        err1.textContent = '';
+        const name = document.getElementById('bg-name').value.trim();
+        const email = document.getElementById('bg-email').value.trim();
+        const mobile = document.getElementById('bg-mobile').value.trim();
+        const city = document.getElementById('bg-city').value;
+        if (!name || !email || !mobile || !city) {
+            err1.textContent = 'Please fill in all required fields.';
+            return;
+        }
+        emailOtp = String(Math.floor(100000 + Math.random() * 900000));
+        mobileOtp = String(Math.floor(100000 + Math.random() * 900000));
+        document.getElementById('bgDemoEmail').textContent = emailOtp;
+        document.getElementById('bgDemoMobile').textContent = mobileOtp;
+        showPanel(2);
+    });
+
+    // Step 2 → 3: OTP Verification
+    otpForm.addEventListener('submit', e => {
+        e.preventDefault();
+        err2.textContent = '';
+        const eo = document.getElementById('bg-otp-email').value.trim();
+        const mo = document.getElementById('bg-otp-mobile').value.trim();
+        if (eo !== emailOtp || mo !== mobileOtp) {
+            err2.textContent = 'Incorrect OTP. Check the demo codes shown above.';
+            return;
+        }
+        showPanel(3);
+    });
+
+    // Step 3: Payment → close & scroll to calendar
+    payBtn.addEventListener('click', () => {
+        closeModal();
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+})();
+
 
